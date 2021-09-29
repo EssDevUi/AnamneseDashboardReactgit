@@ -43,6 +43,7 @@ export default class WizAppOptions extends React.Component {
         super(props);
         this.state = {
             steps:  ['Praxisdaten', ' Praxislogo', ' App-Einstellungen' , " Sperrpasswort"],
+            id:1,
             LastUrlIndex :"",
             AllowPriviousEntry:false,
             BlockingPassword:false,

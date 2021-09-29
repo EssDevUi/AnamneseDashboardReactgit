@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+.alert-success{
+  background-color: #02b875;
+  color: white;
+}
+.alert, .alert p{
+  font-family: HelveticaNeue,Helvetica Neue, Helvetica, sans-Arial;
+}
+.alert{
+  border: none;
+  columns: #fff;
+  font-size: 0.875rem;
+}

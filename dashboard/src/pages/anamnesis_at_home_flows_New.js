@@ -38,11 +38,9 @@ export default class anamnesis_at_home_flow_new extends React.Component{
     componentDidMount(){
         
     }
-    PostData(){
-        Postanamnesis_at_home_flow_new(this.state);
+    async PostData(){
+       await Postanamnesis_at_home_flow_new(this);
         this.props.history.push('/external/anamnesis_at_home_flows');
-
-
     }
     render(){
         return(

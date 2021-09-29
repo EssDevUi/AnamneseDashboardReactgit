@@ -156,13 +156,45 @@ export function get_ASubmissionsDetailByID (obj){
         url: ServerUrl+'/api/dashboard/v1/anamnesis_flow_submissions/'+obj.state.dataById + '/',
         
       }).then(response => {
-        const ParseList=[];
-        response.data.patientsList.forEach(element => {
-          ParseList.push(JSON.parse(element))
-          });
+      
         obj.setState({
-            data:JSON.parse(response.data.data),
-            patients:ParseList,
+            data:response.data,
+        })
+      })
+      axios({
+        method: 'Options',
+        url: ServerUrl+'/api/v1/Patients/limit=20',
+      }).then(response => {
+        // const ParseList=[];
+        // response.data.patientsList.forEach(element => {
+        //   ParseList.push(JSON.parse(element))
+        //   });
+        obj.setState({
+            patients:response.data.patients,
+            loader:false
+
+        })
+      })
+}
+export function patch_ASubmissionsPatient (obj,patid){
+  obj.setState({
+    loader:true
+
+})
+    axios({
+        method: 'Patch',
+        url: ServerUrl+'/api/dashboard/v1/anamnesis_flow_submissions/'+obj.state.dataById + '/',
+        headers:{
+          RequestPayload: patid
+        }
+      }).then(response => {
+      
+      })
+      axios({
+        method: 'Post',
+        url: ServerUrl+'/api/v1/anamnesis_at_home_submissions/fetch',
+      }).then(response => {
+        obj.setState({
             loader:false
 
         })
@@ -199,9 +231,9 @@ export async function getUser_dashboard(obj) {
 
       })
       const response = await axios.get(ServerUrl+'/external/anamnesis_at_home_flows/');
-       
       obj.setState({
-        data: JSON.parse(response.data).anamnesis_at_home_flow,
+        // data: JSON.parse(response.data).anamnesis_at_home_flow,
+        data: response.data,
         loader:false
 
     })
@@ -210,19 +242,25 @@ export async function getUser_dashboard(obj) {
     }
   }
 export async function Postanamnesis_at_home_flow_new(obj) {
+  debugger
+
   obj.setState({
     loader:true
 
   })
   const data={
-    "name":obj.name,
-    "notification_email":obj.notification_email,
-    "defaultt":obj.defaultt,
-    "display_email":obj.display_email,
-    "display_phone":obj.display_phone,
+    "name":obj.state.name,
+    "notification_email":obj.state.notification_email,
+    "default":obj.state.defaultt,
+    "display_email":obj.state.display_email,
+    "display_phone":obj.state.display_phone,
 
   };
-  axios({
+  if(data.default=="")
+  {
+    data.default=false;
+  }
+  await axios({
     method: 'Post',
     url: ServerUrl+'/external/anamnesis_at_home_flows/',
     data: data
@@ -262,17 +300,35 @@ export async function Postanamnesis_at_home_flow_new(obj) {
         method: 'Get',
         url: ServerUrl+'/external/anamnesis_at_home_flows/'+id+'/edit',
       }).then(response => {
+        const anamnesisflow=response.data.record;
+        const temp=response.data.templateid;
+        // response.data.templateid.forEach(element => {
+        //   temp.push(JSON.parse(element));
+        // });
 
         obj.setState({
-          anamnesis_at_home_flow  : response.data,
-          Vorlagen:response.data.Vorlagen
+          anamnesis_at_home_flow  : anamnesisflow,
+          Vorlagen:anamnesisflow.vorlagen,
+          template:temp
           })
       })
   }
   export function Add_dashboard2(e){
+    if(e.state.select==null){
+      return;
+    }
+    debugger
+    var addedTemplate=e.state.template.filter(item => {
+      return item.id === e.state.select
+    })
+    // var newTemplateList=e.state.Vorlagen.push(addedTemplate);
+    e.setState({
+      Vorlagen:[...e.state.Vorlagen,addedTemplate],
+      template  : e.state.template.filter(({ id }) => id !== e.state.select)
+      })
     axios({
         method: 'Post',
-        url: ServerUrl+'/external/anamnesis_at_home_flows/',
+        url: ServerUrl+'/external/anamnesis_at_home_flows/'+e.state.select+'/'+e.state.anamnesis_at_home_flow.id,
       }).then(response => {
        console.log(response);
       })
@@ -311,7 +367,11 @@ export async function Postanamnesis_at_home_flow_new(obj) {
       //   })
       })
 }
-  export function MoveUp_dashboard2 (id,e)  {
+  export function MoveUp_dashboard2 (id,e,CurrentIndex)  {
+    if(CurrentIndex==1)
+    {
+      return;
+    }
     axios({
         method: 'Get',
         url: ServerUrl+'/external/anamnesis_at_home_flows/1001/document_templates/'+id+'/move_up/',
@@ -323,7 +383,7 @@ export async function Postanamnesis_at_home_flow_new(obj) {
       //   })
       })
 }
-export function Movedown_dashboard2  (id,e)  {
+  export function Movedown_dashboard2  (id,e)  {
     axios({
         method: 'Get',
         url: ServerUrl+'/external/anamnesis_at_home_flows/1001/document_templates/'+id+'/move_down/',
@@ -337,23 +397,26 @@ export function Movedown_dashboard2  (id,e)  {
 }
 
   export async function get_PracticeData(obj) {
-      const response = await axios.get(ServerUrl+'/external/welcome_wizard/practice_data/');
+      const response = await axios.get(ServerUrl+'/external/welcome_wizard/practice_data?Id='+obj.state.Id);
       console.log(response);
-      // obj.setState({
-      //   array : response.data,
-      //   Name:response.data.Name,
-      //   Adress1:response.data.Adress1,
-      //   Adress2:response.data.Adress2,
-      //   City:response.data.City,
-      //   Email:response.data.Email,
-      //   Phone:response.data.Phone,
-      //   PostCode:response.data.PostCode,
-      //   Website:response.data.Website,
+    debugger
+
+      obj.setState({
+        array : response.data,
+        Name:response.data.name,
+        Adress1:response.data.adress1,
+        Adress2:response.data.adress2,
+        City:response.data.city,
+        Email:response.data.email,
+        Phone:response.data.phone,
+        PostCode:response.data.postCode,
+        Website:response.data.website,
   
-      // })
+      })
   }
   export function Post_PracticeData(props){
     const data={
+      "Id":props.Id,
       "Name":props.Name,
       "Adress1":props.Adress1,
       "Adress2":props.Adress2,
@@ -375,7 +438,7 @@ export function Movedown_dashboard2  (id,e)  {
     })
   } 
   export async function get_anamnesePin(obj) {
-    const response = await axios.get(ServerUrl+'/external/welcome_wizard/anamnesis_pin/');
+    const response = await axios.get(ServerUrl+'/external/welcome_wizard/anamnesis_pin?Id='+obj.id);
     console.log(response);
     // obj.setState({
       //   DangerZonePassword:response.data.DangerZonePassword,
@@ -384,6 +447,7 @@ export function Movedown_dashboard2  (id,e)  {
 }
 export function post_anamnesePin(props){
   const data={
+    "Id":props.id,
     "DangerZonePassword":props.DangerZonePassword,
     "authenticity_token":"FkVCdznlWKhw70v01gebVOHiaQukTrSBKMYDrIypIuA5TNBirxzCTT216LlutonWZfJyqVrlgBiI54CcAiEKGA"
 
@@ -406,6 +470,7 @@ export async function get_appOptions(obj) {
 }
 export function post_appOptions(props){
   const data={
+    "Id":props.id,
     "AllowPriviousEntry":props.AllowPriviousEntry,
     "BlockingPassword":props.BlockingPassword,
     "BugReports":props.BugReports,
@@ -425,7 +490,8 @@ export function post_appOptions(props){
   })
 } 
 export async function get_oracticeLogo(obj) {
-  const response = await axios.get(ServerUrl+'/external/welcome_wizard/practice_logo/');
+  const response = await axios.get(ServerUrl+'/external/welcome_wizard/practice_logo?Id='+obj.id);
+  obj.Logo=response;
   console.log(response);
   // obj.setState({
     //   DangerZonePassword:response.data.DangerZonePassword,
@@ -433,7 +499,9 @@ export async function get_oracticeLogo(obj) {
   // })
 }
 export function POST_PRACTICElOGO(props){
+  debugger
   const data={
+    "Id":props.Id,
     "Logo":props.Logo,
     "authenticity_token":"FkVCdznlWKhw70v01gebVOHiaQukTrSBKMYDrIypIuA5TNBirxzCTT216LlutonWZfJyqVrlgBiI54CcAiEKGA"
 
@@ -447,6 +515,8 @@ export function POST_PRACTICElOGO(props){
   })
 } 
   export async function getPracticeData_Practice(obj) {
+    debugger
+
     try {
       const response = await axios.get(ServerUrl+'/external/practice/');
       console.log(response);

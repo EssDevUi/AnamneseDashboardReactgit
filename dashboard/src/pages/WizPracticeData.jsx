@@ -25,6 +25,7 @@ export default class WizPracticeData extends React.Component {
            steps:  ['Praxisdaten', ' Praxislogo', ' App-Einstellungen' , " Sperrpasswort"],
            array : "",
            LastUrlIndex :"",
+           Id:1,
             Name:"",
             Adress1:"",
             Adress2:"",
@@ -53,6 +54,8 @@ export default class WizPracticeData extends React.Component {
             });
         }
         onSave(){
+            debugger
+
             Post_PracticeData(this.state);
             if(this.state.LastUrlIndex==="welcome_wizard/practice_data")
             {
@@ -72,7 +75,7 @@ export default class WizPracticeData extends React.Component {
             } else{
                 type = "text"
             }
-          elements.push(  <div className="col-md-6 col-xs-12 col-lg-6 mb-3">        <div>          <TextField className="w-100"   type={type}   onChange={(e)=>this.handleChange(e)} name={Names[i]}   size="small"          id="outlined-basic" label={labels[i]} variant="outlined" />          </div>      </div>);
+          elements.push(  <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> <div>    <TextField className="w-100"  type={type}   onChange={(e)=>this.handleChange(e)} name={Names[i]}   size="small"         id="outlined-basic" label={labels[i]} variant="outlined" />          </div>      </div>);
     
         }
         return elements;
@@ -117,7 +120,47 @@ export default class WizPracticeData extends React.Component {
 
                         </Typography>
                             <div className="row">
-                              {this.inputFields()}
+                              {/* {this.inputFields()} */}
+                              <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> 
+                              <div>   
+                                   <TextField className="w-100"  type="text" value={this.state.Name}  onChange={(e)=>this.handleChange(e)} name="Name"   size="small"         id="outlined-basic" label="Name" variant="outlined" />     
+                                 </div> 
+                                 </div>
+                                 <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> 
+                              <div>   
+                                   <TextField className="w-100"  type="text" value={this.state.Adress1}  onChange={(e)=>this.handleChange(e)} name="Adress1"   size="small"         id="outlined-basic" label="Adress1" variant="outlined" />     
+                                 </div> 
+                                 </div>
+                                 <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> 
+                              <div>   
+                                   <TextField className="w-100"  type="text" value={this.state.Adress2}  onChange={(e)=>this.handleChange(e)} name="Adress2"   size="small"         id="outlined-basic" label="Adress2" variant="outlined" />     
+                                 </div> 
+                                 </div>
+                                 <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> 
+                              <div>   
+                                   <TextField className="w-100"  type="text" value={this.state.PostCode}  onChange={(e)=>this.handleChange(e)} name="PostCode"   size="small"         id="outlined-basic" label="PostCode" variant="outlined" />     
+                                 </div> 
+                                 </div>
+                                 <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> 
+                              <div>   
+                                   <TextField className="w-100"  type="text" value={this.state.City}  onChange={(e)=>this.handleChange(e)} name="City"   size="small"         id="outlined-basic" label="City" variant="outlined" />     
+                                 </div> 
+                                 </div>
+                                 <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> 
+                              <div>   
+                                   <TextField className="w-100"  type="text" value={this.state.Phone}  onChange={(e)=>this.handleChange(e)} name="Phone"   size="small"         id="outlined-basic" label="Phone" variant="outlined" />     
+                                 </div> 
+                                 </div>
+                                 <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> 
+                              <div>   
+                                   <TextField className="w-100"  type="text" value={this.state.Email}  onChange={(e)=>this.handleChange(e)} name="Adress1"   size="small"         id="outlined-basic" label="Adress1" variant="outlined" />     
+                                 </div> 
+                                 </div>
+                                 <div className="col-md-6 col-xs-12 col-lg-6 mb-3"> 
+                              <div>   
+                                   <TextField className="w-100"  type="text" value={this.state.Website}  onChange={(e)=>this.handleChange(e)} name="Adress1"   size="small"         id="outlined-basic" label="Adress1" variant="outlined" />     
+                                 </div> 
+                                 </div>
                             </div>
 
                         </div>

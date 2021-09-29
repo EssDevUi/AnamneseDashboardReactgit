@@ -121,7 +121,8 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                         </Grid>
                         <Grid item xs={2}>
                             <div className="p-3">
-                            <FormControlLabel
+                            <input type="checkbox" defaultChecked={iSchecked} />
+                            {/* <FormControlLabel
                                 control={
                                     <Checkbox
                                     checked = {iSchecked}
@@ -129,7 +130,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                                 />
                                 }
                                 label=""
-                            />
+                            /> */}
                                                     
                             </div>
                         </Grid>

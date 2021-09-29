@@ -72,7 +72,7 @@ const SortableItem = sortableElement(({value}) =>
 
         <DragHandle />
 
-        <ArrowUpwardIcon className="mx-3"  onClick={(e) => MoveUp_dashboard2(value.id,e)}/>
+        <ArrowUpwardIcon className="mx-3"  onClick={(e) => MoveUp_dashboard2(value.id,e,value.sortIndex)}/>
         
         <ArrowDownwardIcon onClick={(e) => Movedown_dashboard2(value.id,e)}/>
 
@@ -81,7 +81,7 @@ const SortableItem = sortableElement(({value}) =>
         </div> 
         <div className="col-2 col-sm-12 col-lg-1 col-md-1">
         <ListItemText
-    primary={value.SortIndex}
+    primary={value.sortIndex}
     bold
 />
         </div>
@@ -97,7 +97,7 @@ const SortableItem = sortableElement(({value}) =>
 </div> 
     <div className="col-sm-12 col-lg-3 col-md-3 position-relative adjustinSmallIcon">
     <ListItemSecondaryAction>
-    <Link id={value.id} name="RemoveLink" onClick={(e) => RemoveTemplate_dashboard2_fourtCard(e)}>
+    <Link id={value.homeflowTemplatesID} name="RemoveLink" onClick={(e) => RemoveTemplate_dashboard2_fourtCard(e)}>
         Entfernen
     </Link>
 </ListItemSecondaryAction>
@@ -122,14 +122,15 @@ constructor(props){
              anamnesis_at_home_flow  : "",
              Vorlagen:[],
             dataById:props.match.params.id,
-            select:1
+            template:[],
+            select:null
             }
             
-}
-componentDidMount(){
-    get_dashboard2(this);
-}
-
+    }
+    componentDidMount(){
+        get_dashboard2(this);
+    }
+ 
    
   onSortEnd = ({oldIndex, newIndex}) => {
 
@@ -137,11 +138,10 @@ componentDidMount(){
         Vorlagen: arrayMove(Vorlagen, oldIndex, newIndex),
 
     }));
-  console.log(this.state.Vorlagen);
-
+//   console.log(this.state.Vorlagen);
 
     for (let i = 0; i < this.state.Vorlagen.length; i++) {
-        this.state.Vorlagen[i].SortIndex = i;
+        this.state.Vorlagen[i].sortIndex = i+1;
     }
     this.setState({
         Vorlagen: this.state.Vorlagen
@@ -181,7 +181,7 @@ componentDidMount(){
                                 <div>
                              
                                     <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
-                                        {this.state.Vorlagen.map((value, index) => (
+                                        { this.state.Vorlagen?.map((value, index) => (
                                         <SortableItem style={{listStlye:"none"}} key={`item-${value}`} index={index} value={value} />
                                         ))}
                                     </SortableContainer>
@@ -201,19 +201,26 @@ componentDidMount(){
                                                     Athena standard for app: blank information sheet            
                                                                     </Typography> */}
                                                 <FormControl fullWidth>
+                                                <InputLabel id="select-label">Athena standard for app: blank information sheet</InputLabel>
                                                     <Select
-                                                    value={this.state.select}
+                                                    // value={this.state.select}
                                                     onChange={this.handleChange}
+                                                    labelId="select-label"
+                                                    
                                                     //   displayEmpty
                                                     //   className={classes.selectEmpty}
                                                     //   inputProps={{ 'aria-label': 'Without label' }}
                                                     >
-                                                    <MenuItem value="1">
+                                                    {/* <MenuItem value="1">
                                                     <em>Athena standard for app: blank information sheet</em>
-                                                    </MenuItem>
-                                                    <MenuItem value={10}>Ten</MenuItem>
+                                                    </MenuItem> */}
+                                                 
+                                                    {this.state.template.map((element, index) => {
+                                                        return <MenuItem value={element.id}>{element.title}</MenuItem>
+                                                    })}
+                                                    {/* <MenuItem value={10}>Ten</MenuItem>
                                                     <MenuItem value={20}>Twenty</MenuItem>
-                                                    <MenuItem value={30}>Thirty</MenuItem>
+                                                    <MenuItem value={30}>Thirty</MenuItem> */}
                                                     </Select>
                                                 </FormControl>
                                                 {/* <FormControl fullWidth >
@@ -233,7 +240,7 @@ componentDidMount(){
                                         <Grid xs={12} md={2}>
                                             <div className="text-right pr-3 my-2 ml-2 ">
 
-                                                <Button variant="contained" fullWidth color="primary" onClick={(e)=>Add_dashboard2(e)}> Add</Button>
+                                                <Button variant="contained" fullWidth color="primary" onClick={(e)=>Add_dashboard2(this)}> Add</Button>
                                             </div>
 
                                         </Grid>

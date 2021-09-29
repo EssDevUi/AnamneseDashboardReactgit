@@ -20,6 +20,7 @@ export default class WizAnamnesisPin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id:1,
             steps:  ['Praxisdaten', ' Praxislogo', ' App-Einstellungen' , " Sperrpasswort"],
            InputLabels  : ["Name der Praxis *","Adresszeile 1","Adresszeile 2", "Postleitzahl" ,"Stadt","Telefon","E-Mail","Website"], 
            array : "",

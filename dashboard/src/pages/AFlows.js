@@ -128,7 +128,7 @@ export default class AFlows extends React.Component {
                   {i.link}</Link>
               </TableCell>
               <TableCell style={{textAlign:"left"}} align="right">
-              {i.Vorlagen.map((J,indexa)=>{
+              {i.vorlagen?.map((J,indexa)=>{
                   return(
                     <span>{J.templates}, </span>
                   )

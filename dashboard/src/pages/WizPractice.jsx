@@ -21,9 +21,9 @@ import {getPracticeData_Practice,PostPracticeData_Practice} from "../api";
 function getStepContent(stepIndex,state,handleChange,handleFile,handledropzone) {
   switch (stepIndex) {
     case 0:
-      return  <WizPracticeData state={state} onhandle={handleChange} />;
+      return  <WizPracticeData state={state}  onhandle={handleChange} />;
     case 1:
-      return <WizPracticeLogo onhandle={handledropzone}  />;
+      return <WizPracticeLogo state={state} RecordId={this.Id} onhandle={handledropzone}  />;
     case 2:
       return <WizAppOptions state={state} onhandle={handleChange} />;
     case 3:
@@ -40,6 +40,7 @@ class WizPractice extends React.Component {
       activeStep: 0,
       steps:  ['Praxisdaten', ' Praxislogo', ' App-Einstellungen' , " Sperrpasswort"],
       array : "",
+      Id:6,
       Name:"",
       Adress1:"",
       Adress2:"",
