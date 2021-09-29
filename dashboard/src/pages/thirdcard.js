@@ -78,7 +78,9 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                         </Grid>
                         <Grid item xs={12} sm={10}>
                             <div className="p-3">
-                                <TextField id="outlined-basic" value={props.anamnesis_at_home_flow.name} fullWidth variant="outlined" />
+                            <input type="text" className="customInputStyle" id="outlined-basic" name="name" onChange={props.updateonChange} value={props.anamnesis_at_home_flow.name}  />
+
+                                {/* <TextField id="outlined-basic" name="name" onChange={props.updateonChange} defaultvalue={props.anamnesis_at_home_flow.name} fullWidth variant="outlined" /> */}
                             </div>
                         </Grid>
 
@@ -100,7 +102,9 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                         </Grid>
                         <Grid item xs={12} sm={10}>
                             <div className="p-3">
-                                <TextField id="outlined-basic" value={props.anamnesis_at_home_flow.notification_email} fullWidth variant="outlined" />
+                            <input type="text" className="customInputStyle" id="outlined-basic" name="notification_email" onChange={props.updateonChange} value={props.anamnesis_at_home_flow.notification_email}  />
+
+                                {/* <TextField id="outlined-basic" name="notification_email" onChange={props.updateonChange} defaultvalue={props.anamnesis_at_home_flow.notification_email} fullWidth variant="outlined" /> */}
                             </div>
                         </Grid>
 
@@ -121,7 +125,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                         </Grid>
                         <Grid item xs={2}>
                             <div className="p-3">
-                            <input type="checkbox" defaultChecked={iSchecked} />
+                            <input type="checkbox" name="default" onChange={props.updateonChange} defaultChecked={iSchecked} />
                             {/* <FormControlLabel
                                 control={
                                     <Checkbox
@@ -151,12 +155,13 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                             <div className="p-3">
                                 <Typography variant="p" bold align="left">
                                     E-Mail *
-                         </Typography>
+                                </Typography>
                             </div>
                         </Grid>
                         <Grid item xs={12} sm={10}>
                             <div className="p-3">
-                                <TextField id="outlined-basic" value={props.anamnesis_at_home_flow.display_email} fullWidth variant="outlined" />
+                                {/* <TextField id="outlined-basic" name="display_email" onChange={props.updateonChange} defaultValue={props.anamnesis_at_home_flow.display_email} fullWidth variant="outlined" /> */}
+                                <input type="text" className="customInputStyle" id="outlined-basic" name="display_email" onChange={props.updateonChange} value={props.anamnesis_at_home_flow.display_email}  />
                             </div>
                         </Grid>
 
@@ -171,7 +176,9 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                         </Grid>
                         <Grid item xs={12} sm={10}>
                             <div className="p-3">
-                                <TextField id="outlined-basic" value={props.anamnesis_at_home_flow.display_phone} fullWidth variant="outlined" />
+                            <input type="text" className="customInputStyle" id="outlined-basic" name="display_phone" onChange={props.updateonChange} value={props.anamnesis_at_home_flow.display_phone}  />
+
+                                {/* <TextField id="outlined-basic" name="display_phone" onChange={props.updateonChange} defaultvalue={props.anamnesis_at_home_flow.display_phone} fullWidth variant="outlined" /> */}
                             </div>
                         </Grid>
 
@@ -179,7 +186,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                     <Grid container justify="flex-end">
                         <Grid item xs={12} sm={2}>
                             <div className="p-3">
-                        <Button variant="contained" color="primary">Speichern</Button>
+                        <Button variant="contained" color="primary" onClick={props.SaveData}>Speichern</Button>
                             </div>
                         </Grid>
                     </Grid>

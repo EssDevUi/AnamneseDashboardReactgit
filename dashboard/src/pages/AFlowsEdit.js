@@ -154,6 +154,21 @@ constructor(props){
         select:event.target.value
     });
   };
+  handleThirdCardChangeEvent = (e) => {
+            debugger
+            let status = this.state.anamnesis_at_home_flow;
+            this.setState({
+
+                anamnesis_at_home_flow : {
+                    ...this.state.anamnesis_at_home_flow,
+                    [e.target.name] : e.target.name === "default" ? e.target.checked :  e.target.value,
+                }
+            })
+    console.log(this.state.anamnesis_at_home_flow)
+  }
+  SaveData = (e) => { 
+      debugger
+  }
 
       render(props){
     return (
@@ -258,7 +273,7 @@ constructor(props){
                 </CardContent>
             </Card>
             <Sndcard anamnesis_at_home_flow={this.state.anamnesis_at_home_flow}/>
-            <Thirdcard anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} />
+            <Thirdcard anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} updateonChange={this.handleThirdCardChangeEvent} SaveData={this.SaveData} />
             <Fourthcard  anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} />
             <a
                style={{marginRight:"8px"}}
