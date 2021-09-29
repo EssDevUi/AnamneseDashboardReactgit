@@ -261,6 +261,44 @@ pb-4, .py-4 {
   padding: 1px 8.25em !important;
 
 }
+.customInputStyle{
+  padding: 17.67px 14px ;
+
+  font: inherit;
+    color: currentColor;
+    width: 100%;
+    border: 0;
+    margin: 0;
+    display: block;
+    min-width: 0;
+    background: none;
+    box-sizing: border-box;
+    animation-name: mui-auto-fill-cancel;
+    letter-spacing: inherit;
+    animation-duration: 10ms;
+    -webkit-tap-highlight-color: transparent;
+    border-color: rgba(0, 0, 0, 0.23) !important;
+    border: 1px solid ;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.1876em;
+    letter-spacing: 0.00938em;
+
+}
+.customInputStyle:hover{
+  border-color: inherit !important;
+
+}
+.customInputStyle:focus-visible{
+  border-color: #3f51b5 !important;
+  border-width: 2px;
+  outline: none;
+
+}
 @media only screen and (max-width:786px){
   .mediaQueryXS , .w-82{
     width: 100% !important;
