@@ -53,7 +53,7 @@ export default function Header() {
           <div className="collapse navbar-collapse dual-collapse " id="navbarColor01">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item"><a className="nav-link text-white" href="/external/documents">Dokumente</a></li>
-              <li className="nav-item"><a className="nav-link text-white" href="/external/document_templates">Vorlagen</a></li>
+              <li className="nav-item"><a className="nav-link text-white" href="/CreateTemplate">Vorlagen</a></li>
               <li className="nav-item dropdown">
               <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
               <span class="text-white">Anamnese@Home</span>
