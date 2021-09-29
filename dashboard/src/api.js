@@ -111,21 +111,22 @@ export function GetAllSheetsData_Template_SheetsTabs(obj) {
   }
   export function handleSubmit_profile(event,obj) {
     const obje={
-        "ProfileID":obj.id,
-        // "Salutation":obj.Salutation,
-        // "Fname":obj.firstName,
-        // "LastName":obj.LastName,
-        // "Email":obj.Email,
-        // "Password":obj.Password
+        "ID":obj.array.ID,
+        "Salutation":obj.Salutation,
+        "FirstName":obj.firstName,
+        "LastName":obj.LastName,
+        "Email":obj.Email,
+        "Password":obj.Password
       };
     axios({
       method: 'Post',
-      url: ServerUrl+'/external/profile?Salutation='+obj.Salutation+'&firstName='+obj.firstName+'&LastName='+obj.LastName+'&Email='+obj.Email+'&Password='+obj.Password + '/',
-      headers:{
-         'data':JSON.stringify(obje),
-      }
+      url: ServerUrl+'/external/profile/',
+      data:obje,
+      // headers:{
+      //    'data':JSON.stringify(obje),
+      // }
     }).then(response => {
-      event.target.reset();
+      // event.target.reset();
     })
 
 }
@@ -294,6 +295,34 @@ export async function Postanamnesis_at_home_flow_new(obj) {
      
     
   }
+  export async function SaveMoreSettings_dashboard2(obj) {
+    const data={
+      "homeFlowLinkID":obj.state.anamnesis_at_home_flow.id,
+      "name":obj.state.anamnesis_at_home_flow.name,
+      "notification_email":obj.state.anamnesis_at_home_flow.notification_email,
+      "default":obj.state.anamnesis_at_home_flow.default,
+      "display_email":obj.state.anamnesis_at_home_flow.display_email,
+      "display_phone":obj.state.anamnesis_at_home_flow.display_phone,
+  
+    };
+    if(data.default=="")
+    {
+      data.default=false;
+    }
+    await axios({
+      method: 'Post',
+      url: ServerUrl+'/external/anamnesis_at_home_flows/',
+      data: data
+        }).then(response => {
+            console.log(response);
+            obj.setState({
+              loader:false
+          
+            })
+        })
+   
+  
+}
   export function get_dashboard2(obj){
     const id=parseInt(obj.state.dataById);
     axios({
@@ -305,7 +334,7 @@ export async function Postanamnesis_at_home_flow_new(obj) {
         // response.data.templateid.forEach(element => {
         //   temp.push(JSON.parse(element));
         // });
-
+debugger
         obj.setState({
           anamnesis_at_home_flow  : anamnesisflow,
           Vorlagen:anamnesisflow.vorlagen,
@@ -322,18 +351,32 @@ export async function Postanamnesis_at_home_flow_new(obj) {
       return item.id === e.state.select
     })
     // var newTemplateList=e.state.Vorlagen.push(addedTemplate);
-    e.setState({
-      Vorlagen:[...e.state.Vorlagen,addedTemplate],
-      template  : e.state.template.filter(({ id }) => id !== e.state.select)
-      })
+    // e.setState({
+    //   Vorlagen:[...e.state.Vorlagen,addedTemplate],
+    //   template  : e.state.template.filter(({ id }) => id !== e.state.select)
+    //   })
     axios({
         method: 'Post',
         url: ServerUrl+'/external/anamnesis_at_home_flows/'+e.state.select+'/'+e.state.anamnesis_at_home_flow.id,
-      }).then(response => {
+        headers:{
+          "homeFlowId":e.state.anamnesis_at_home_flow.id
+        }
+       }).then(response => {
        console.log(response);
+       const anamnesisflow=response.data.record;
+            const temp=response.data.templateid;
+            // response.data.templateid.forEach(element => {
+            //   temp.push(JSON.parse(element));
+            // });
+    
+            e.setState({
+              anamnesis_at_home_flow  : anamnesisflow,
+              Vorlagen:anamnesisflow.vorlagen,
+              template:temp
+              })
       })
   }
-  export function RemoveTemplatefromLink_dashboard2  (e) {
+  export function RemoveTemplatefromLink_dashboard2  (e,props) {
     var id = e.currentTarget.id;
     if(e.currentTarget.name === "RemoveLink"){
       id = e.target.id;
@@ -343,9 +386,22 @@ export async function Postanamnesis_at_home_flow_new(obj) {
       axios({
           method: 'Post',
           url: ServerUrl+'/external/anamnesis_at_home_flows/1001/document_templates/'+id+'/remove/',
-         
+          headers:{
+            "homeFlowId":props.state.anamnesis_at_home_flow.id
+          }
         }).then(response => {
             console.log(response);
+            const anamnesisflow=response.data.record;
+            const temp=response.data.templateid;
+            // response.data.templateid.forEach(element => {
+            //   temp.push(JSON.parse(element));
+            // });
+    
+            props.setState({
+              anamnesis_at_home_flow  : anamnesisflow,
+              Vorlagen:anamnesisflow.vorlagen,
+              template:temp
+              })
           // this.setState({
           //     data : response.data,
           //     ShowForm:false
@@ -388,7 +444,8 @@ export async function Postanamnesis_at_home_flow_new(obj) {
       //   })
       })
 }
-  export function MoveUp_dashboard2 (id,e,CurrentIndex)  {
+  export function MoveUp_dashboard2 (id,e,CurrentIndex,props)  {
+    debugger
     if(CurrentIndex==1)
     {
       return;
@@ -396,21 +453,47 @@ export async function Postanamnesis_at_home_flow_new(obj) {
     axios({
         method: 'Get',
         url: ServerUrl+'/external/anamnesis_at_home_flows/1001/document_templates/'+id+'/move_up/',
-       
+        headers:{
+          "homeFlowId":props.state.anamnesis_at_home_flow.id
+        }
       }).then(response => {
           console.log(response);
+          const anamnesisflow=response.data.record;
+          const temp=response.data.templateid;
+          // response.data.templateid.forEach(element => {
+          //   temp.push(JSON.parse(element));
+          // });
+  
+          props.setState({
+            anamnesis_at_home_flow  : anamnesisflow,
+            Vorlagen:anamnesisflow.vorlagen,
+            template:temp
+            })
           //   this.setState({
       //       data : response.data,
       //   })
       })
 }
-  export function Movedown_dashboard2  (id,e)  {
+  export function Movedown_dashboard2  (id,e,props)  {
     axios({
         method: 'Get',
         url: ServerUrl+'/external/anamnesis_at_home_flows/1001/document_templates/'+id+'/move_down/',
-       
+        headers:{
+          "homeFlowId":props.state.anamnesis_at_home_flow.id
+        }
       }).then(response => {
           console.log(response);
+          const anamnesisflow=response.data.record;
+          const temp=response.data.templateid;
+          // response.data.templateid.forEach(element => {
+          //   temp.push(JSON.parse(element));
+          // });
+  
+          props.setState({
+            anamnesis_at_home_flow  : anamnesisflow,
+            Vorlagen:anamnesisflow.vorlagen,
+            template:temp
+            })
           //   this.setState({
       //       data : response.data,
       //   })
@@ -459,8 +542,12 @@ export async function Postanamnesis_at_home_flow_new(obj) {
     })
   } 
   export async function get_anamnesePin(obj) {
-    const response = await axios.get(ServerUrl+'/external/welcome_wizard/anamnesis_pin?Id='+obj.id);
+    debugger
+    const response = await axios.get(ServerUrl+'/external/welcome_wizard/anamnesis_pin?Id='+obj.state.id);
     console.log(response);
+    obj.setState({
+      DangerZonePassword: response.data
+  });
     // obj.setState({
       //   DangerZonePassword:response.data.DangerZonePassword,
 
@@ -511,6 +598,7 @@ export function post_appOptions(props){
   })
 } 
 export async function get_oracticeLogo(obj) {
+  debugger
   const response = await axios.get(ServerUrl+'/external/welcome_wizard/practice_logo?Id='+obj.id);
   obj.Logo=response;
   console.log(response);

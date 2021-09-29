@@ -20,6 +20,7 @@ export default class external__practice__anamnesis_pin_card extends React.Compon
     constructor(props) {
         super(props);
         this.state = {
+            id:1,
            array : "",
            DangerZonePassword:"",
         }

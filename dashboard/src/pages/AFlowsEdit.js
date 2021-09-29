@@ -36,7 +36,7 @@ import Thirdcard from "./thirdcard"
 import Fourthcard from "./fourthCard"
 import React, { useState, useEffect } from 'react';
 import {ServerUrl} from "../Config";
-import {get_dashboard2,Add_dashboard2,RemoveTemplatefromLink_dashboard2,RemoveTemplate_dashboard2_fourtCard,MoveUp_dashboard2,Movedown_dashboard2,Move_dashboard2} from "../api";
+import {get_dashboard2,SaveMoreSettings_dashboard2,Add_dashboard2,RemoveTemplatefromLink_dashboard2,RemoveTemplate_dashboard2_fourtCard,MoveUp_dashboard2,Movedown_dashboard2,Move_dashboard2} from "../api";
 import {
     BrowserRouter as Router,
     params
@@ -64,7 +64,7 @@ const bglight = {
     backgroundColor: "#d6d6d6"
 }
 
-const SortableItem = sortableElement(({value}) =>
+const SortableItem = sortableElement(({value,StateObj}) =>
 <ListItem className="border mb-3"  >
     <div className=" col-12 col-sm-12 adjustIcons col-lg-2 col-md-3">
     <ListItemAvatar className="mr-3">
@@ -72,9 +72,9 @@ const SortableItem = sortableElement(({value}) =>
 
         <DragHandle />
 
-        <ArrowUpwardIcon className="mx-3"  onClick={(e) => MoveUp_dashboard2(value.id,e,value.sortIndex)}/>
+        <ArrowUpwardIcon className="mx-3"  onClick={(e) => MoveUp_dashboard2(value.id,e,value.sortIndex,StateObj)}/>
         
-        <ArrowDownwardIcon onClick={(e) => Movedown_dashboard2(value.id,e)}/>
+        <ArrowDownwardIcon onClick={(e) => Movedown_dashboard2(value.id,e,StateObj)}/>
 
     </Grid>
 </ListItemAvatar>
@@ -97,7 +97,7 @@ const SortableItem = sortableElement(({value}) =>
 </div> 
     <div className="col-sm-12 col-lg-3 col-md-3 position-relative adjustinSmallIcon">
     <ListItemSecondaryAction>
-    <Link id={value.homeflowTemplatesID} name="RemoveLink" onClick={(e) => RemoveTemplatefromLink_dashboard2(e)}>
+    <Link id={value.homeflowTemplatesID} name="RemoveLink" onClick={(e) => RemoveTemplatefromLink_dashboard2(e,StateObj)}>
         Entfernen
     </Link>
 </ListItemSecondaryAction>
@@ -155,7 +155,6 @@ constructor(props){
     });
   };
   handleThirdCardChangeEvent = (e) => {
-            debugger
             let status = this.state.anamnesis_at_home_flow;
             this.setState({
 
@@ -166,8 +165,8 @@ constructor(props){
             })
     console.log(this.state.anamnesis_at_home_flow)
   }
-  SaveData = (e) => { 
-      debugger
+  SaveMoresettings = (e) => { 
+      SaveMoreSettings_dashboard2(this);
   }
 
       render(props){
@@ -197,7 +196,7 @@ constructor(props){
                              
                                     <SortableContainer onSortEnd={this.onSortEnd} useDragHandle>
                                         { this.state.Vorlagen?.map((value, index) => (
-                                        <SortableItem style={{listStlye:"none"}} key={`item-${value}`} index={index} value={value} />
+                                        <SortableItem style={{listStlye:"none"}} key={`item-${value}`} index={index} value={value} StateObj={this} />
                                         ))}
                                     </SortableContainer>
                                    <div className="pb-2">
@@ -273,7 +272,7 @@ constructor(props){
                 </CardContent>
             </Card>
             <Sndcard anamnesis_at_home_flow={this.state.anamnesis_at_home_flow}/>
-            <Thirdcard anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} updateonChange={this.handleThirdCardChangeEvent} SaveData={this.SaveData} />
+            <Thirdcard anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} updateonChange={this.handleThirdCardChangeEvent} SaveData={this.SaveMoresettings} />
             <Fourthcard  anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} StateProp={this} />
             <a
                style={{marginRight:"8px"}}
