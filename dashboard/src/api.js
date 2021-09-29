@@ -300,6 +300,7 @@ export async function Postanamnesis_at_home_flow_new(obj) {
         method: 'Get',
         url: ServerUrl+'/external/anamnesis_at_home_flows/'+id+'/edit',
       }).then(response => {
+        debugger
         const anamnesisflow=response.data.record;
         const temp=response.data.templateid;
         // response.data.templateid.forEach(element => {
@@ -323,7 +324,7 @@ export async function Postanamnesis_at_home_flow_new(obj) {
     })
     // var newTemplateList=e.state.Vorlagen.push(addedTemplate);
     e.setState({
-      Vorlagen:[...e.state.Vorlagen,addedTemplate],
+      Vorlagen:[...e.state.Vorlagen,addedTemplate[0]],
       template  : e.state.template.filter(({ id }) => id !== e.state.select)
       })
     axios({
@@ -511,13 +512,14 @@ export function post_appOptions(props){
   })
 } 
 export async function get_oracticeLogo(obj) {
-  const response = await axios.get(ServerUrl+'/external/welcome_wizard/practice_logo?Id='+obj.id);
-  obj.Logo=response;
+  const response = await axios.get(ServerUrl+'/external/welcome_wizard/practice_logo?Id='+obj.state.id);
+  debugger
+  obj.state.Logo=response.data;
   console.log(response);
-  // obj.setState({
-    //   DangerZonePassword:response.data.DangerZonePassword,
+  obj.setState({
+      Logo:response.data,
 
-  // })
+  })
 }
 export function POST_PRACTICElOGO(props){
   debugger

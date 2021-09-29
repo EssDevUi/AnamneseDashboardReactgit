@@ -299,6 +299,38 @@ pb-4, .py-4 {
   outline: none;
 
 }
+.adjustCenterPreviewimage .MuiDropzonePreviewList-root.MuiGrid-container{
+  justify-content:center;
+}
+.dropzonepreviewDiv {
+  border: 2px dashed #ccc;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  padding: 25px;
+  text-align: center;
+  position:relative
+
+}
+.dropzonepreviewDiv:hover .overlayedit{
+  display: flex !important;
+}
+.overlayedit{ 
+  background-color: rgba(0,0,0,0.1);
+  position:absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.overlayedit > span.MuiButtonBase-root.MuiIconButton-root{
+  background-color:#fff;
+}
+.overlayedit svg{
+  font-size: 2.5rem;
+}
 @media only screen and (max-width:786px){
   .mediaQueryXS , .w-82{
     width: 100% !important;

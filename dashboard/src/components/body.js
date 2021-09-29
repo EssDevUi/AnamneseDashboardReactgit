@@ -19,6 +19,7 @@ import externalePractice from "../pages/external_practice";
 import external_practice_edit from "../pages/external_practice_edit";
 import anamnesis_at_home_flow_new from "../pages/anamnesis_at_home_flows_New";
 import ASubmissionsDetail from "../pages/ASubmissionsDetail";
+import CreateTemplate from "../pages/CreateTemplate";
 import {
     BrowserRouter as Router,
     Switch,
@@ -72,6 +73,8 @@ const Body = () =>{
                 <Route exact path="/external/practice/options_card"  component={external__practice__options_card}>
                 </Route>
                 <Route exact path="/external/practice/anamnesis_pin_card"  component={external__practice__anamnesis_pin_card}>
+                </Route>
+                <Route exact path="/CreateTemplate"  component={CreateTemplate}>
                 </Route>
              </Switch>
             </Router>

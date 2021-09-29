@@ -39,15 +39,15 @@ export default function Sndcard(props) {
     return (
         <div className="mb-3">
 
-            
+
             <Card>
                 <CardContent style={{ padding: 0 }}>
                     <Grid container spacing={3}>
                         <Grid item xs={12} className="pb-0">
                             <div className="p-3" style={bglight}>
                                 <Typography variant="p" bold align="left">
-                                Anamnesis @ Home-Link
-                            </Typography>
+                                    Anamnesis @ Home-Link
+                                </Typography>
                             </div>
 
 
@@ -58,31 +58,31 @@ export default function Sndcard(props) {
                         <Grid item xs={12} className="Body py-0">
                             <div className="p-3">
                                 <Typography variant="p" bold align="left">
-                                Veröffentlichen Sie diesen Link auf Ihrer Website oder senden Sie ihn Ihren Patienten per E-Mail. Mit dem Klick auf den Link können Ihre Patienten das Ausfüllen der ausgewählten Vorlagen starten.</Typography>
-                         
+                                    Veröffentlichen Sie diesen Link auf Ihrer Website oder senden Sie ihn Ihren Patienten per E-Mail. Mit dem Klick auf den Link können Ihre Patienten das Ausfüllen der ausgewählten Vorlagen starten.</Typography>
+
 
                             </div>
                         </Grid>
-                        
+
 
                     </Grid>
                     <Grid container alignItems="center">
-                    <Grid item xs={2}>
-                   <div className="p-3">
-                   <Typography variant="p" bold align="left">
-Links                            </Typography>
-                       </div>
+                        <Grid item xs={2}>
+                            <div className="p-3">
+                                <Typography variant="p" bold align="left">
+                                    Links                            </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item xs={7}>
+                            <div className="p-3">
+                                <TextField id="outlined-basic" value={props.anamnesis_at_home_flow.link} fullWidth variant="outlined" />
+                            </div>
+                        </Grid>
+                        <Grid xs={3}>
+                            <Button variant="contained" color="primary" className="mr-3"> Kopieren</Button>
+                            <Button variant="contained" color="primary"> Öffnen</Button>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={7}>
-                        <div className="p-3">
-                        <TextField id="outlined-basic" value={props.anamnesis_at_home_flow.link} fullWidth  variant="outlined" />
-                        </div>
-                    </Grid>
-                    <Grid xs={3}>
-                    <Button variant="contained"  color="primary" className="mr-3"> Kopieren</Button>
-                    <Button variant="contained"  color="primary"> Öffnen</Button>
-                    </Grid>
-</Grid>
 
                 </CardContent>
             </Card>
