@@ -37,8 +37,6 @@ const bglight = {
 }
 export default function Thirdcard(props) {
 
-   
-    
     const classes = useStyles();
 const iSchecked=props.anamnesis_at_home_flow.default;
 

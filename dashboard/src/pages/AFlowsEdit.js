@@ -36,7 +36,7 @@ import Thirdcard from "./thirdcard"
 import Fourthcard from "./fourthCard"
 import React, { useState, useEffect } from 'react';
 import {ServerUrl} from "../Config";
-import {get_dashboard2,Add_dashboard2,RemoveTemplate_dashboard2_fourtCard,MoveUp_dashboard2,Movedown_dashboard2,Move_dashboard2} from "../api";
+import {get_dashboard2,Add_dashboard2,RemoveTemplatefromLink_dashboard2,RemoveTemplate_dashboard2_fourtCard,MoveUp_dashboard2,Movedown_dashboard2,Move_dashboard2} from "../api";
 import {
     BrowserRouter as Router,
     params
@@ -97,7 +97,7 @@ const SortableItem = sortableElement(({value}) =>
 </div> 
     <div className="col-sm-12 col-lg-3 col-md-3 position-relative adjustinSmallIcon">
     <ListItemSecondaryAction>
-    <Link id={value.homeflowTemplatesID} name="RemoveLink" onClick={(e) => RemoveTemplate_dashboard2_fourtCard(e)}>
+    <Link id={value.homeflowTemplatesID} name="RemoveLink" onClick={(e) => RemoveTemplatefromLink_dashboard2(e)}>
         Entfernen
     </Link>
 </ListItemSecondaryAction>
@@ -259,7 +259,7 @@ constructor(props){
             </Card>
             <Sndcard anamnesis_at_home_flow={this.state.anamnesis_at_home_flow}/>
             <Thirdcard anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} />
-            <Fourthcard  anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} />
+            <Fourthcard  anamnesis_at_home_flow={this.state.anamnesis_at_home_flow} StateProp={this} />
             <a
                style={{marginRight:"8px"}}
                href="/external/anamnesis_at_home_flows"

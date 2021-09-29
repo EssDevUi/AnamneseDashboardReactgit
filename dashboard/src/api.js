@@ -333,7 +333,7 @@ export async function Postanamnesis_at_home_flow_new(obj) {
        console.log(response);
       })
   }
-  export function RemoveTemplate_dashboard2_fourtCard  (e) {
+  export function RemoveTemplatefromLink_dashboard2  (e) {
     var id = e.currentTarget.id;
     if(e.currentTarget.name === "RemoveLink"){
       id = e.target.id;
@@ -346,6 +346,27 @@ export async function Postanamnesis_at_home_flow_new(obj) {
          
         }).then(response => {
             console.log(response);
+          // this.setState({
+          //     data : response.data,
+          //     ShowForm:false
+          // })
+        })
+  }
+  export function RemoveTemplate_dashboard2_fourtCard  (e,props) {
+    debugger
+    var id = e.currentTarget.id;
+    if(e.currentTarget.name === "RemoveLink"){
+      id = e.target.id;
+    }else{
+      id = parseInt(e.currentTarget.attributes.getattr.value);
+    }
+      axios({
+          method: 'Delete',
+          url: ServerUrl+'/external/anamnesis_at_home_flows/1001/document_templates/'+id+'/remove/',
+         
+        }).then(response => {
+            console.log(response);
+            props.props.history.push("/external/anamnesis_at_home_flows");
           // this.setState({
           //     data : response.data,
           //     ShowForm:false

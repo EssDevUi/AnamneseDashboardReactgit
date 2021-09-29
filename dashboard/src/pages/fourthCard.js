@@ -67,7 +67,7 @@ export default function Fourthcard(props) {
 
                         </Grid>
                             <div className="p-3" >
-                            <Button variant="contained" name="RemoveTemplateFourthCard" getattr={props.anamnesis_at_home_flow.id} id={props.anamnesis_at_home_flow.id} onClick={(e) => RemoveTemplate_dashboard2_fourtCard(e)} color="secondary"  > Diesen Anamnese@Home-Link un­wi­der­ruf­lich löschen</Button>
+                            <Button variant="contained" name="RemoveTemplateFourthCard" getattr={props.anamnesis_at_home_flow.id} id={props.anamnesis_at_home_flow.id} onClick={(e) => RemoveTemplate_dashboard2_fourtCard(e,props.StateProp)} color="secondary"  > Diesen Anamnese@Home-Link un­wi­der­ruf­lich löschen</Button>
 
                             </div>
 
