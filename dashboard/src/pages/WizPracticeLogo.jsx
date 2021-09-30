@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import { DropzoneArea } from 'material-ui-dropzone'
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import ReactFileReader from 'react-file-reader';
 import { POST_PRACTICElOGO, get_oracticeLogo } from "../api";
 import Button from '@material-ui/core/Button';
 import Stepper from '@material-ui/core/Stepper';
@@ -82,10 +81,10 @@ export default class WizPracticeLogo extends React.Component {
     })
   }
   render(props) {
-    const options = {
-      filterType: 'checkbox',
-    };
-    const columns = ["Titel des Dokuments	", "Art des Dokuments	", "Erstellt am	", "State"];
+    // const options = {
+    //   filterType: 'checkbox',
+    // };
+    // const columns = ["Titel des Dokuments	", "Art des Dokuments	", "Erstellt am	", "State"];
     return (
       <div>
         <div className="mb-3">
@@ -103,7 +102,7 @@ export default class WizPracticeLogo extends React.Component {
           <Card>
             <CardContent>
               <div className="w-75 mb-3 mediaQueryXS">
-                <Typography variant="h5" className="mb-3 font-weight-bold" bold align="left" >
+                <Typography variant="h5" className="mb-3 font-weight-bold"  align="left" >
                   Praxislogo bearbeiten
 
 
@@ -115,7 +114,7 @@ export default class WizPracticeLogo extends React.Component {
                   Wenn Sie Ihr Logo ausgewählt haben, klicken Sie auf "Weiter".                          </p>
               </div>
               <div className=" border w-75 p-3 mediaQueryXS">
-                <Typography variant="h6" className="mb-3 font-weight-bold" bold align="left" >
+                <Typography variant="h6" className="mb-3 font-weight-bold"  align="left" >
                   Logo bearbeiten
 
                 </Typography>
