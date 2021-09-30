@@ -100,7 +100,7 @@ export default class WizAnamnesisPin extends React.Component {
                             <div className="row mt-3">
                             <div className="col-md-8 col-lg-8 col-xs-12 mb-3 ">  
                                     <div>        
-                                          <TextField className="w-100 mb-2 mediaQueryXS"   type="text"  onChange={this.handleChange} name="DangerZonePassword"     size="small"          id="outlined-basic" label={"Sperrpasswort"} variant="outlined" />      
+                                          <TextField className="w-100 mb-2 mediaQueryXS"   type="text" value={this.state.DangerZonePassword}  onChange={this.handleChange} name="DangerZonePassword"     size="small"          id="outlined-basic" label={"Sperrpasswort"} variant="outlined" />      
                                           <p style={{fontSize:"11px"}}>Nach dem erfolgreichen Ausfüllen eines Anamnesebogens muss ein Sperrpasswort eingegeben werden, um die Patientendaten vor unberechtigtem Zugriff zu schützen.</p>
                                               </div>   
                                                  </div>

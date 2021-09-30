@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {ServerUrl} from './Config';
 
-export function deleterecord_Template_SheetsTabs (e) {
-    const deleteID= e.target.id;
+export function deleterecord_Template_SheetsTabs (e,objState) {
+    const deleteID= e.currentTarget.id;
      axios({
          method: 'Delete',
          url: ServerUrl+'/external/document_templates/'+deleteID + '/',
@@ -11,7 +11,10 @@ export function deleterecord_Template_SheetsTabs (e) {
          }
        }).then(response => {
            console.log(response)
-
+           objState.setState({
+            array:response.data,
+            loader:false
+        })
          // this.setState({
          //     array:response.data
          // })
@@ -36,14 +39,26 @@ export function deleterecord_Template_SheetsTabs (e) {
         console.log(response);
        })
  }
-
+ export function TemplateType_Template_SheetsTabs(e) {
+ 
+    axios({
+        method: 'Get',
+        url: ServerUrl+'/external/document_templates/TemplatesTypes/',
+      }).then(response => {
+        e.setState({
+          TemplateTypes:response.data
+        })
+      })
+}
  export function newrecord_Template_SheetsTabs(e) {
+   debugger
   const data={
     "authenticity_token":"FkVCdznlWKhw70v01gebVOHiaQukTrSBKMYDrIypIuA5TNBirxzCTT216LlutonWZfJyqVrlgBiI54CcAiEKGA",
     "document_template":
     {
-         "title":"gfgfgfg",
-         "template_category_id":1
+          "id":parseInt(e.state.id),
+         "title":e.state.title,
+         "template_category_id":e.state.DropdownValue
      },
      "commit": "Vorlage erstellen"
   }
@@ -52,21 +67,22 @@ export function deleterecord_Template_SheetsTabs (e) {
         url: ServerUrl+'/external/document_templates/new/',
        data:data
       }).then(response => {
-
-       console.log(response);
+          e.props.history.push('/external/document_templates')
       })
 }
-export function grtrecordByid_Template_SheetsTabs(e) {
-    const recordID= e.target.id;
+export function getrecordByid_Template_SheetsTabs(id,props) {
     axios({
-        method: 'GET',
-        url: ServerUrl+'/external/document_templates/'+recordID + '/',
+        method: 'Get',
+        url: ServerUrl+'/external/document_templates/'+id + '/',
         headers:{
             
         }
       }).then(response => {
-
-       console.log(response);
+        props.setState({
+          title:response.data.templates,
+          DropdownValue:response.data.categoryID,
+          // TemplateTypes:response.data
+        })
       })
 }
 export function GetAllSheetsData_Template_SheetsTabs(obj) {
@@ -82,6 +98,7 @@ export function GetAllSheetsData_Template_SheetsTabs(obj) {
         
       }
     }).then(response => {
+ 
         obj.setState({
           array:response.data,
           loader:false

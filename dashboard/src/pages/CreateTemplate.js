@@ -15,6 +15,8 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
+import {newrecord_Template_SheetsTabs,TemplateType_Template_SheetsTabs} from "../api";
+import {getrecordByid_Template_SheetsTabs} from "../api";
 
 
 export default class CreateTemplate extends React.Component {
@@ -23,12 +25,24 @@ export default class CreateTemplate extends React.Component {
         this.state = {
             title: "",
             DropdownValue: "",
-            loader: false
+            TemplateTypes:[],
+            loader: false,
+            id:0
         }
 
     }
     componentDidMount() {
-
+        if(this.props.match.params.id!==null||this.props.match.params.id!=='')
+        {
+            this.setState({
+                id: this.props.match.params.id
+            })
+            getrecordByid_Template_SheetsTabs(this.props.match.params.id,this);
+            TemplateType_Template_SheetsTabs(this);
+        }
+        else{
+            TemplateType_Template_SheetsTabs(this);
+        }
     }
     handleChange = (event) => {
         console.log([event.target.name]+ " " + " " + event.target.value)
@@ -37,9 +51,8 @@ export default class CreateTemplate extends React.Component {
         });
     }
     createTemplate = (e) => { 
-        debugger
-        console.log("title in state : " + this.state.title)
-        console.log("DropDownValue in state : " + this.state.DropdownValue)
+        
+        newrecord_Template_SheetsTabs(this)
     }
 
     render(props) {
@@ -88,12 +101,15 @@ export default class CreateTemplate extends React.Component {
                                                 onChange={this.handleChange}
                                                 value={this.state.DropdownValue}
                                             >
-                                                <MenuItem value={1}>Aufklärungsbögen</MenuItem>
-                                                <MenuItem value={2}>Anamnesebögen</MenuItem>
+                                                 {this.state.TemplateTypes.map((element, index) => {
+                                                        return <MenuItem value={element.id}>{element.categoryName}</MenuItem>
+                                                    })}
+                                                {/* <MenuItem value={1}>Aufklärungsbögen</MenuItem>
+                                                <MenuItem value={2}>Anamnesebögen</MenuItem> */}
                                             </Select>
                                         </FormControl>                               </div>
                                     <div className="d-flex mt-3 justify-content-between align-items-center">
-                                        <a href="#">Zurück</a>
+                                        <a href="/external/document_templates">Zurück</a>
                                         <Button variant="contained" color="primary" onClick={this.createTemplate}>
                                         Vorlage erstellen
                                         </Button>

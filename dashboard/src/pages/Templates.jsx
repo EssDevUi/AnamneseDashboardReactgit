@@ -12,7 +12,7 @@ import axios from 'axios';
 import {ServerUrl} from '../Config';
 import Loader from "react-loader-spinner";
 
-import {newrecord_Template_SheetsTabs,GetAllSheetsData_Template_SheetsTabs} from "../api";
+import {GetAllSheetsData_Template_SheetsTabs} from "../api";
 
 export default class Templates extends React.Component {
         constructor(props){
@@ -24,7 +24,9 @@ export default class Templates extends React.Component {
 
         }
         componentDidMount(){
-            GetAllSheetsData_Template_SheetsTabs(this);
+
+        GetAllSheetsData_Template_SheetsTabs(this);
+
         }
       
     render(props){
@@ -53,7 +55,8 @@ export default class Templates extends React.Component {
                             Vorlagen                            </Typography>
                             </Grid>
                             <Grid item>
-                            <Button  variant="contained" onClick={(e)=>newrecord_Template_SheetsTabs(e)} color="primary"> Neue Vorlage erstellen</Button>
+                            <a  variant="contained" className="btn" href="/external/document_templates/CreateTemplate" color="primary"> Neue Vorlage erstellen</a>
+                            {/* <a  variant="contained" onClick={(e)=>newrecord_Template_SheetsTabs(e)} color="primary"> Neue Vorlage erstellen</a> */}
 
                             </Grid>
                             </Grid>
@@ -79,8 +82,8 @@ export default class Templates extends React.Component {
 
                     </Grid>
                
-            <SheetsTabs title="Aufklärungsbögen"  list1data={this.state.array.templateid2} list2data={this.state.array.templateid2} />
-            <SheetsTabs title="Anamnesebögen" list1data={this.state.array.templateid1} list2data={this.state.array.templateid1} />
+            <SheetsTabs title="Aufklärungsbögen"  list1data={this.state.array.templateid2} list2data={this.state.array.templateid2} objState={this} />
+            <SheetsTabs title="Anamnesebögen" list1data={this.state.array.templateid1} list2data={this.state.array.templateid1} objState={this}/>
             </CardContent>
             </Card>
             </>

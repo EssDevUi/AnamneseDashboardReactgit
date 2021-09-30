@@ -13,7 +13,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import {deleterecord_Template_SheetsTabs,duplicaterecord_Template_SheetsTabs,grtrecordByid_Template_SheetsTabs} from "../api";
+import {deleterecord_Template_SheetsTabs,duplicaterecord_Template_SheetsTabs} from "../api";
 
 
 const bglight = {
@@ -23,21 +23,19 @@ const bglight = {
 }
 
 
-const firstTab = (data) => {
+const firstTab = (data,objState) => {
     var array = [];
-    var elements=[];
-
+    var elements=data;
 if(data.length>0){
     for (var i = 0; i <= data.length - 1; i++) {
-    elements = JSON.parse(data[i]);
-if(elements.default===true){
+    if(elements[i].default===true){
 
         array.push(
            
-            <li class="list-group-item " key={elements.id}>
+            <li class="list-group-item " key={elements[i].id}>
                 <div class="d-flex align-items-center justify-content-between">
-                    <span>{elements.title}</span>
-                    <Link   onClick={(e) => duplicaterecord_Template_SheetsTabs(e,elements)}>
+                    <span>{elements[i].templates}</span>
+                    <Link   onClick={(e) => duplicaterecord_Template_SheetsTabs(e,elements[i])}>
                     Duplizieren
                     </Link>
                 </div>
@@ -50,25 +48,25 @@ if(elements.default===true){
  
     return array;
 }
-const scndTab = (data) => {
-    var elements = [];
+const scndTab = (data,objState) => {
+    var elements = data;
     var array = [];
     for (var i = 0; i <= data.length - 1; i++) {
-        elements = JSON.parse(data[i]);
-        if(elements.default===false){
+        if(elements[i].default===false){
         array.push(
            
-            <li class="list-group-item " key={elements.id}>
+            <li class="list-group-item " key={elements[i].id}>
                   <div class="d-flex align-items-center justify-content-between">
-                    <span>{elements.title}</span>
+                    <span>{elements[i].templates}</span>
                    <div>
-                   <Link id={elements.id} onClick={(e) => duplicaterecord_Template_SheetsTabs(e)}>
+                   <Link id={elements[i].id} onClick={(e) => duplicaterecord_Template_SheetsTabs(e)}>
                     Duplizieren
                     </Link>
-                   <Link className="mx-3" id={elements.id}  onClick={(e) => grtrecordByid_Template_SheetsTabs(e)}> 
+                    {/* onClick={(e) => grtrecordByid_Template_SheetsTabs(e) */}
+                   <a className="mx-3" id={elements[i].id}  href={`/external/document_templates/CreateTemplate/${elements[i].id}`}> 
                    Bearbeiten
-                    </Link>
-                   <Link className="text-danger" id={elements.id}  onClick={(e) =>deleterecord_Template_SheetsTabs(e)}>
+                    </a>
+                   <Link className="text-danger" id={elements[i].id}  onClick={(e) =>deleterecord_Template_SheetsTabs(e,objState)}>
                    Löschen
                     </Link>
                    </div>
@@ -81,13 +79,12 @@ const scndTab = (data) => {
     return array;
 }
 
-export default function SheetsTabs(props) {
-
+export default function SheetsTabs(props,objState) {
         return(
             <>
          
          <Typography className="mb-3" variant="h4" bold align="left" >
-         {props.title}
+         {props.templates}
                             </Typography>
             <Card  className="mb-3">
                 <CardContent style={{ padding: 0 }}>
@@ -101,7 +98,7 @@ export default function SheetsTabs(props) {
                         </Grid>
                     </Grid>
                     <ul class="list-group">
-                                        {props.list1data !== undefined ?   firstTab(props.list1data): ""}
+                                        {props.list1data !== undefined ?   firstTab(props.list1data,props.objState): ""}
 
                                   </ul>
 
@@ -119,7 +116,7 @@ export default function SheetsTabs(props) {
                         </Grid>
                     </Grid>
                     <ul class="list-group">
-                                        {props.list2data !== undefined ?   scndTab(props.list2data): ""}
+                                        {props.list2data !== undefined ?   scndTab(props.list2data,props.objState): ""}
 
                                   </ul>
 

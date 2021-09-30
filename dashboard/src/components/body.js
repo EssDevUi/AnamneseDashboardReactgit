@@ -74,7 +74,9 @@ const Body = () =>{
                 </Route>
                 <Route exact path="/external/practice/anamnesis_pin_card"  component={external__practice__anamnesis_pin_card}>
                 </Route>
-                <Route exact path="/CreateTemplate"  component={CreateTemplate}>
+                <Route exact path="/external/document_templates/CreateTemplate/"  component={CreateTemplate}>
+                </Route>
+                <Route exact path="/external/document_templates/CreateTemplate/:id"  component={CreateTemplate}>
                 </Route>
              </Switch>
             </Router>
