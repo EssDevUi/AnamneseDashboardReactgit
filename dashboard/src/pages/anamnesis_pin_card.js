@@ -54,14 +54,14 @@ export default class external__practice__anamnesis_pin_card extends React.Compon
                 <Card>
                     <CardContent>
                         <div className="w-75 mb-3 mediaQueryXS">
-                            <Typography variant="h5" className="mb-3 font-weight-bold" bold align="left" >
+                            <Typography variant="h5" className="mb-3 font-weight-bold"  align="left" >
                             Sperrpasswort bearbeiten
 
                     </Typography>
                          
                         </div>
                         <div className=" border w-75 p-3 mediaQueryXS">
-                            <Typography variant="h6" className="mb-3 font-weight-bold" bold align="left" >
+                            <Typography variant="h6" className="mb-3 font-weight-bold"  align="left" >
                             Danger Zone
 
 

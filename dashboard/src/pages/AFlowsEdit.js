@@ -1,27 +1,20 @@
-import react from "react"
-import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-import Divider from '@material-ui/core/Divider';
-import axios from 'axios';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
 import Link from '@material-ui/core/Link';
-import FolderIcon from '@material-ui/icons/Folder';
 import ZoomOutMapIcon from '@material-ui/icons/ZoomOutMap';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import Button from '@material-ui/core/Button';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Sndcard from "./sndcard"
@@ -34,32 +27,28 @@ import {
   import arrayMove from 'array-move';
 import Thirdcard from "./thirdcard"
 import Fourthcard from "./fourthCard"
-import React, { useState, useEffect } from 'react';
-import {ServerUrl} from "../Config";
-import {get_dashboard2,SaveMoreSettings_dashboard2,Add_dashboard2,RemoveTemplatefromLink_dashboard2,RemoveTemplate_dashboard2_fourtCard,MoveUp_dashboard2,Movedown_dashboard2,Move_dashboard2} from "../api";
-import {
-    BrowserRouter as Router,
-    params
-  } from "react-router-dom";
-const useStyles = makeStyles({
-    table: {
-        minWidth: 650,
-    },
-});
+import React from 'react';
+import {get_dashboard2,SaveMoreSettings_dashboard2,Add_dashboard2,RemoveTemplatefromLink_dashboard2,MoveUp_dashboard2,Movedown_dashboard2,Move_dashboard2} from "../api";
+
+// const useStyles = makeStyles({
+//     table: {
+//         minWidth: 650,
+//     },
+// });
 
 
-const bluepaddbgStyle = {
-    padding: "0.75rem 1.25rem",
-    backgroundColor: "#015270",
-    color: "#fff",
-    borderRadius: "5px"
-}
-const borderCard = {
-    padding: "25px",
-    border: "1px solid #ccc",
-    borderRadius: "5px"
+// const bluepaddbgStyle = {
+//     padding: "0.75rem 1.25rem",
+//     backgroundColor: "#015270",
+//     color: "#fff",
+//     borderRadius: "5px"
+// }
+// const borderCard = {
+//     padding: "25px",
+//     border: "1px solid #ccc",
+//     borderRadius: "5px"
 
-}
+// }
 const bglight = {
     backgroundColor: "#d6d6d6"
 }
@@ -155,7 +144,7 @@ constructor(props){
     });
   };
   handleThirdCardChangeEvent = (e) => {
-            let status = this.state.anamnesis_at_home_flow;
+            // let status = this.state.anamnesis_at_home_flow;
             this.setState({
 
                 anamnesis_at_home_flow : {
@@ -173,7 +162,7 @@ constructor(props){
     return (
         <div >
 
-            <Typography className="mb-3" variant="h4" bold align="left" >
+            <Typography className="mb-3" variant="h4"  align="left" >
                 Anamnese@Home-Link: {this.state.anamnesis_at_home_flow.name }
                             </Typography>
             <Card  className="mb-3">
@@ -181,7 +170,7 @@ constructor(props){
                     <Grid container spacing={3}>
                         <Grid item xs={12} className="pb-0">
                             <div className="p-3" style={bglight}>
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Vorlagen in diesem Anamnese@Home-Link
                             </Typography>
                             </div>
@@ -189,7 +178,7 @@ constructor(props){
 
                         <Grid item xs={12} className="Body py-0">
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Veröffentlichen Sie diese Links auf Ihrer Website oder senden Sie sie Ihren Patienten per E-Mail. Mit dem Klick auf den Link können Ihre Patienten das Ausfüllen der ausgewählten Vorlagen starten.
                             </Typography>
                                 <div>
@@ -204,7 +193,7 @@ constructor(props){
                                         <Grid xs={12} md={3}>
                                             <div className="d-flex pl-3">
                                                 <AddCircleOutlineIcon />
-                                                <Typography className="ml-2" variant="p" bold align="left">
+                                                <Typography className="ml-2" variant="inherit"  align="left">
                                                     Another template
                                                 </Typography>
                                             </div>

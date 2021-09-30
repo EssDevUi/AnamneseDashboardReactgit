@@ -68,14 +68,14 @@ export default class external__practice__logo_card extends React.Component {
           <Card>
             <CardContent>
               <div className="w-75 mb-3 ">
-                <Typography variant="h5" className="mb-3 font-weight-bold" bold align="left" >
+                <Typography variant="h5" className="mb-3 font-weight-bold"  align="left" >
                   Logo bearbeiten
 
 
                 </Typography>
               </div>
               <div className=" border w-75 p-3 mediaQueryXS">
-                <Typography variant="h6" className="mb-3 font-weight-bold" bold align="left" >
+                <Typography variant="h6" className="mb-3 font-weight-bold"  align="left" >
                   Logo bearbeiten
 
                 </Typography>

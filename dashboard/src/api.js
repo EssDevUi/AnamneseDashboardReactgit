@@ -274,7 +274,7 @@ export async function Postanamnesis_at_home_flow_new(obj) {
     "display_phone":obj.state.display_phone,
 
   };
-  if(data.default=="")
+  if(data.default==="")
   {
     data.default=false;
   }
@@ -322,7 +322,7 @@ export async function Postanamnesis_at_home_flow_new(obj) {
       "display_phone":obj.state.anamnesis_at_home_flow.display_phone,
   
     };
-    if(data.default=="")
+    if(data.default==="")
     {
       data.default=false;
     }
@@ -361,13 +361,13 @@ debugger
       })
   }
   export function Add_dashboard2(e){
-    if(e.state.select==null){
+    if(e.state.select===null){
       return;
     }
     debugger
-    var addedTemplate=e.state.template.filter(item => {
-      return item.id === e.state.select
-    })
+    // var addedTemplate=e.state.template.filter(item => {
+    //   return item.id === e.state.select
+    // })
     // var newTemplateList=e.state.Vorlagen.push(addedTemplate);
     // e.setState({
     //   Vorlagen:[...e.state.Vorlagen,addedTemplate],
@@ -464,7 +464,7 @@ debugger
 }
   export function MoveUp_dashboard2 (id,e,CurrentIndex,props)  {
     debugger
-    if(CurrentIndex==1)
+    if(CurrentIndex===1)
     {
       return;
     }

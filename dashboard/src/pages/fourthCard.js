@@ -44,7 +44,7 @@ export default function Fourthcard(props) {
                     <Grid container spacing={3}>
                         <Grid item xs={12} className="pb-0">
                             <div className="p-3" style={bglight}>
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Löschen des Anamnese@Home-Links
                             </Typography>
                             </div>
@@ -56,7 +56,7 @@ export default function Fourthcard(props) {
 
                         <Grid item xs={12} className="Body py-0">
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Hier können Sie diesen Anamnese@Home-Link löschen. Bitte beachten Sie, dass er nicht wiederhergestellt werden kann.
                                 </Typography>
                          

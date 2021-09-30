@@ -59,7 +59,7 @@ export default class Profile extends React.Component {
                         <form onSubmit={((e) => handleSubmit_profile(e, this.state))}>
                             <Grid container spacing={3}>
                                 <Grid item xs={12} className="pb-0">
-                                    <Typography variant="h4" bold align="left" >
+                                    <Typography variant="h4"  align="left" >
                                         Mein Profil
                                     </Typography>
                                 </Grid>

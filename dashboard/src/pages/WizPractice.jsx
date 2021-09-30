@@ -2,15 +2,12 @@ import React from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import WizPracticeData from "./WizPracticeData";
 import WizPracticeLogo from "./WizPracticeLogo";
 import WizAppOptions from "./WizAppOptions";
 import WizAnamnesisPin from "./WizAnamnesisPin";
-import axios from 'axios';
-import ReactFileReader from 'react-file-reader';
-import {ServerUrl} from '../Config';
+
 import {getPracticeData_Practice,PostPracticeData_Practice} from "../api";
 
 
@@ -108,7 +105,7 @@ componentDidMount(props){
      })
   };
   handleChange(event) {
-    if(event.target.type=="checkbox"){
+    if(event.target.type==="checkbox"){
       this.setState({
         [event.target.name]: event.target.checked
     });
@@ -138,7 +135,7 @@ componentDidMount(props){
 
   }
 render(props){
-  const { classes } = this.props;
+  // const { classes } = this.props;
   return (
     <div  style={{width:"100%"}}>
      {this.state.LastUrlIndex !== "practice" ? <Stepper activeStep={this.state.activeStep} alternativeLabel>
