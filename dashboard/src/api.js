@@ -570,8 +570,20 @@ export function post_anamnesePin(props){
   })
 } 
 export async function get_appOptions(obj) {
-  const response = await axios.get(ServerUrl+'/external/welcome_wizard/app_options/');
-  console.log(response);
+  // const response = await axios.get(ServerUrl+'/external/welcome_wizard/app_options/');
+  var data={
+    Id:obj.state.id
+  }
+  axios({
+    method: 'get',
+    url: ServerUrl+'/external/welcome_wizard/app_options/',
+    data:data
+  }).then(response => {
+    console.log(response);
+  })
+
+  debugger
+  // console.log(response);
   // obj.setState({
     //   DangerZonePassword:response.data.DangerZonePassword,
 

@@ -42,6 +42,7 @@ export default class external__practice__options_card extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id:1,
             AllowPriviousEntry:false,
             BlockingPassword:false,
             BugReports:false,
