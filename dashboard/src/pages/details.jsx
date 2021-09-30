@@ -32,7 +32,7 @@ export default function WelcomePage1() {
                 <CardContent>
                     <Grid container spacing={0}>
                         <Grid item xs={12}>
-                            <Typography variant="h5" bold align="left" >
+                            <Typography variant="h5"  align="left" >
                             Zahnarztpraxis Dr. Sven Markus Gallenbach
 
                             </Typography>
@@ -70,7 +70,7 @@ export default function WelcomePage1() {
 
                               </p>
                             <div>
-                                <Typography variant="h5" bold align="left" >
+                                <Typography variant="h5"  align="left" >
                                 Technische Daten
                                 </Typography>
                                 <p>
@@ -79,29 +79,29 @@ export default function WelcomePage1() {
                                 </p>
                             </div>
                             <div>
-                                <Typography variant="h5" bold align="left" >
+                                <Typography variant="h5"  align="left" >
                                 Optionen
                                 </Typography>
-                                <ul class="list-group">
-                                    <li class="list-group-item">Sperrpasswort für Aufklärungsbögen
+                                <ul className="list-group">
+                                    <li className="list-group-item">Sperrpasswort für Aufklärungsbögen
 </li>
-                                    <li class="list-group-item">Zustimmung zum Senden von Fehlerberichten
+                                    <li className="list-group-item">Zustimmung zum Senden von Fehlerberichten
 </li>
-                                    <li class="list-group-item">Zustimmung zum Senden von Analysedaten
+                                    <li className="list-group-item">Zustimmung zum Senden von Analysedaten
 </li>
-                                    <li class="list-group-item">Laden von früheren Anamnese-Eingaben erlauben
+                                    <li className="list-group-item">Laden von früheren Anamnese-Eingaben erlauben
 </li>
-                                    <li class="list-group-item">Nach dem Speichern eines Anamnesebogens navigieren zurück zur
+                                    <li className="list-group-item">Nach dem Speichern eines Anamnesebogens navigieren zurück zur
 </li>
                                  </ul>
                             </div>
                             <div>
-                                <Typography variant="h5" bold align="left" >
+                                <Typography variant="h5"  align="left" >
                                 Zugehörige Nutzer
 
                                 </Typography>
-                                <ul class="list-group">
-                                    <li class="list-group-item"><div>
+                                <ul className="list-group">
+                                    <li className="list-group-item"><div>
                                         <span>Zahnarztpraxis Dr. Sven Markus Gallenbach
 </span>
 <Link>
@@ -114,12 +114,12 @@ info@dr-gallenbach.de
                                    
                                  </ul>
                             </div>
-                            <Typography variant="h5" bold align="left" >
+                            <Typography variant="h5"  align="left" >
                             Daten für die DGSVO-Formulare
 
 
                                 </Typography>
-                            <Typography variant="h5" bold align="left" >
+                            <Typography variant="h5"  align="left" >
                             Datenschutzbeauftragter der Praxis
 
 
@@ -137,7 +137,7 @@ info@dr-gallenbach.de
 
                                     </p>
                                 </div>
-                                <Typography variant="h5" bold align="left" >
+                                <Typography variant="h5"  align="left" >
                                 Externes Abrechnungsunternehmen
 
 

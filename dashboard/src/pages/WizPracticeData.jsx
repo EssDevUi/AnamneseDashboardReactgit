@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
 
 import CardContent from '@material-ui/core/CardContent';
@@ -11,7 +11,6 @@ import {get_PracticeData,Post_PracticeData} from "../api";
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import {ServerUrl} from '../Config';
 
 
 
@@ -82,10 +81,10 @@ export default class WizPracticeData extends React.Component {
       }
 
     render(props) {
-        const options = {
-            filterType: 'checkbox',
-        };
-        const columns = ["Titel des Dokuments	", "Art des Dokuments	", "Erstellt am	", "State"];
+        // const options = {
+        //     filterType: 'checkbox',
+        // };
+        // const columns = ["Titel des Dokuments	", "Art des Dokuments	", "Erstellt am	", "State"];
         return (
          <div>
             <div className="mb-3" style={{width:"100%"}}>
@@ -103,7 +102,7 @@ export default class WizPracticeData extends React.Component {
                 <Card>
                     <CardContent>
                         <div className="w-75 mediaQueryXS mb-3">
-                            <Typography variant="h5" className="mb-3 font-weight-bold" bold align="left" >
+                            <Typography variant="h5" className="mb-3 font-weight-bold"  align="left" >
                                 Praxis-Stammdaten bearbeiten
 
                     </Typography>
@@ -115,7 +114,7 @@ export default class WizPracticeData extends React.Component {
                           </p>
                         </div>
                         <div className=" border w-75 mediaQueryXS p-3 ">
-                            <Typography variant="h6" className="mb-3 font-weight-bold" bold align="left" >
+                            <Typography variant="h6" className="mb-3 font-weight-bold"  align="left" >
                                 Praxis-Stammdaten
 
                         </Typography>

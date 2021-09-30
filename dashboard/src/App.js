@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Layout from "./components/layout";
 import Body from "./components/body";
 import Container from '@material-ui/core/Container';
 

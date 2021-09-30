@@ -1,19 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
 
 import CardContent from '@material-ui/core/CardContent';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import InputLabel from '@material-ui/core/InputLabel';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import {get_appOptions,post_appOptions} from "../api";
 import Stepper from '@material-ui/core/Stepper';
@@ -22,15 +16,15 @@ import StepLabel from '@material-ui/core/StepLabel';
 
 
 
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
-}));
+// const useStyles = makeStyles((theme) => ({
+//     formControl: {
+//         margin: theme.spacing(1),
+//         minWidth: 120,
+//     },
+//     selectEmpty: {
+//         marginTop: theme.spacing(2),
+//     },
+// }));
 
 const width = {
     width: "10%"
@@ -72,7 +66,7 @@ export default class WizAppOptions extends React.Component {
       
       }
     handleChange(e) {
-        if(e.target.type=="checkbox"){
+        if(e.target.type==="checkbox"){
             this.setState({
               [e.target.name]: e.target.checked
           });
@@ -91,10 +85,10 @@ export default class WizAppOptions extends React.Component {
     }
 
     render(props) {
-        const options = {
-            filterType: 'checkbox',
-        };
-        const columns = ["Titel des Dokuments	", "Art des Dokuments	", "Erstellt am	", "State"];
+        // const options = {
+        //     filterType: 'checkbox',
+        // };
+        // const columns = ["Titel des Dokuments	", "Art des Dokuments	", "Erstellt am	", "State"];
         return (
             <div>
 
@@ -113,7 +107,7 @@ export default class WizAppOptions extends React.Component {
                 <Card>
                     <CardContent>
                         <div className="w-75 mb-3 mediaQueryXS">
-                            <Typography variant="h5" className="mb-3 font-weight-bold" bold align="left" >
+                            <Typography variant="h5" className="mb-3 font-weight-bold"  align="left" >
                                 Praxisweite App-Einstellungen bearbeiten
                             </Typography>
                             <p>
@@ -123,7 +117,7 @@ export default class WizAppOptions extends React.Component {
                             <p>Wenn die Option "Sperrpasswort für Aufklärungsbögen" ausgewählt ist, braucht es nach dem Ausfüllen und Speichern eines Aufklärungsbogens das Sperrpasswort, um das iPad wieder benutzen zu können. Ihr individuelles Sperrpasswort legen Sie im nächsten Schritt fest.                         </p>
                         </div>
                         <div className=" border w-75 p-3 mediaQueryXS">
-                            <Typography variant="h6" className="mb-3 font-weight-bold" bold align="left" >
+                            <Typography variant="h6" className="mb-3 font-weight-bold"  align="left" >
                                 Optionen (praxisweite Einstellungen)
 
 
@@ -137,7 +131,7 @@ export default class WizAppOptions extends React.Component {
                                                 className="m-0"
                                                 control={
                                                     <Checkbox
-                                                        defaultChecked={this.state.BlockingPassword}
+                                                        checked={this.state.BlockingPassword}
                                                         color="primary"
                                                         onChange={this.handleChange}
                                                         name="BlockingPassword"
@@ -160,7 +154,7 @@ export default class WizAppOptions extends React.Component {
                                                 control={
                                                     <Checkbox
                                                         color="primary"
-                                                        defaultChecked={this.state.BugReports}
+                                                        checked={this.state.BugReports}
                                                         onChange={this.handleChange}
                                                         name="BugReports"
                                                     />
@@ -335,7 +329,7 @@ export default class WizAppOptions extends React.Component {
                                                 control={
                                                     <Checkbox
                                                         color="primary"
-                                                        defaultChecked={this.state.Sendanalyticsdata}
+                                                       checked={this.state.Sendanalyticsdata}
                                                         onChange={this.handleChange}
                                                         name="Sendanalyticsdata"
                                                     />
@@ -358,7 +352,7 @@ export default class WizAppOptions extends React.Component {
                                                 control={
                                                     <Checkbox
                                                         color="primary"
-                                                        defaultChecked={this.state.AllowPriviousEntry}
+                                                        checked={this.state.AllowPriviousEntry}
                                                         onChange={this.handleChange}
                                                         name="AllowPriviousEntry"
                                                     />

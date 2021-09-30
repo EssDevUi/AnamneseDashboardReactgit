@@ -1,14 +1,10 @@
-import react from "react"
-import React, { Component } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-import AirplayIcon from '@material-ui/icons/Airplay';
 import Divider from '@material-ui/core/Divider';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -19,30 +15,28 @@ import TableRow from '@material-ui/core/TableRow';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import Paper from '@material-ui/core/Paper';
-import axios from 'axios';
-import {ServerUrl} from '../Config';
-import {getUser_dashboard,toEdit_dashboard,createNew_dashboard} from "../api";
+import {getUser_dashboard,createNew_dashboard} from "../api";
 import Loader from "react-loader-spinner";
 
-const useStyles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
-  });
+// const useStyles = makeStyles({
+//     table: {
+//       minWidth: 650,
+//     },
+//   });
 
 
-const bluepaddbgStyle = {
-    padding:"0.75rem 1.25rem",
-    backgroundColor: "#015270",
-    color:"#fff",
-    borderRadius: "5px"
-}
-const borderCard = {
-    padding:"25px",
-    border:"1px solid #ccc",
-    borderRadius: "5px"
+// const bluepaddbgStyle = {
+//     padding:"0.75rem 1.25rem",
+//     backgroundColor: "#015270",
+//     color:"#fff",
+//     borderRadius: "5px"
+// }
+// const borderCard = {
+//     padding:"25px",
+//     border:"1px solid #ccc",
+//     borderRadius: "5px"
 
-}
+// }
 
 export default class AFlows extends React.Component {
     constructor(props){
@@ -83,7 +77,7 @@ export default class AFlows extends React.Component {
                         alignItems="center"
                         >
                             <Grid item>
-                            <Typography variant="h4" bold align="left" >
+                            <Typography variant="h4"  align="left" >
                             Anamnese@Home-Links
                             </Typography>
                             </Grid>
@@ -95,7 +89,7 @@ export default class AFlows extends React.Component {
                         </Grid>
 
                         <Grid item xs={12}>
-                            <Typography variant="p" bold align="left">
+                            <Typography variant="inherit"  align="left">
                                 Veröffentlichen Sie diese Links auf Ihrer Website oder senden Sie sie Ihren Patienten per E-Mail. Mit dem Klick auf den Link können Ihre Patienten das Ausfüllen der ausgewählten Vorlagen starten.
                             </Typography>
 
@@ -135,7 +129,7 @@ export default class AFlows extends React.Component {
               })}
               </TableCell>
               <TableCell align="right">
-                  {i.default==true?(<CheckBoxIcon />):(<CheckBoxOutlineBlankIcon/>)}
+                  {i.default===true?(<CheckBoxIcon />):(<CheckBoxOutlineBlankIcon/>)}
                   </TableCell>
               <TableCell align="right">
                   {/* <a id={i.TemplateId} href="/external/anamnesis_at_home_flows/1061/edit" onClick={(e)=>toEdit_dashboard(e)}> */}

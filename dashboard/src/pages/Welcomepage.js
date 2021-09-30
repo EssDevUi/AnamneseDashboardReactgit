@@ -1,19 +1,16 @@
-import react from "react"
-import { makeStyles } from '@material-ui/core/styles';
+
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-import AirplayIcon from '@material-ui/icons/Airplay';
 import Divider from '@material-ui/core/Divider';
-import Paper from '@material-ui/core/Paper';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import DescriptionIcon from '@material-ui/icons/Description';
 import ImageIcon from '@material-ui/icons/Image';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+
 const bluepaddbgStyle = {
     padding:"0.75rem 1.25rem",
     backgroundColor: "#015270",
@@ -44,12 +41,12 @@ export default function WelcomePage() {
         <div >
             <Card >
                 <CardContent>
-                            <Typography variant="h5" bold align="left" >
+                            <Typography variant="h5"  align="left" >
                             Willkommen im Athena Dashboard
                             </Typography>
 
                             <div style={bluepaddbgStyle} className="my-4">
-                            <Typography color="white" variant="p" align="left" gutterBottom>
+                            <Typography  variant="inherit" align="left" gutterBottom>
                             <Link color="inherit" href="https://hilfe.athenaapp.de/" onClick={preventDefault}>
                             Besuchen Sie die Athena-Hilfe, um zu lesen welche Verbesserungen das aktuelle Athena-Update bietet.
                             </Link>
@@ -62,9 +59,9 @@ export default function WelcomePage() {
                             <div style={borderCard}>
                                <div>
                                <div className="text-center p-2">
-                               <i class="fas fa-magic" style={IconSize}></i>
+                               <i className="fas fa-magic" style={IconSize}></i>
                                </div>
-                                <Typography color="white" className="p-2 font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className="p-2 font-weight-bold" variant="inherit" align="left" gutterBottom>
                                     ATHENA-Setup
                                 </Typography>
                                 <div className="p-2">
@@ -80,7 +77,7 @@ export default function WelcomePage() {
                               <div className="text-center p-2">
                                <InsertDriveFileIcon style={IconSize} />
                                </div>
-                                <Typography color="white" className="p-2 font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className="p-2 font-weight-bold" variant="inherit" align="left" gutterBottom>
                                 Dokumente
                                 </Typography>
                                 <div className="p-2">
@@ -94,9 +91,9 @@ export default function WelcomePage() {
                             <div style={borderCard}>
                                <div>
                                <div className="text-center p-2">
-                               <i class="fas fa-paste" style={IconSize}></i>
+                               <i className="fas fa-paste" style={IconSize}></i>
                                </div>
-                                <Typography color="white" className="p-2 font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className="p-2 font-weight-bold" variant="inherit" align="left" gutterBottom>
                                 Vorlagen
                                 </Typography>
                                 <div className="p-2">
@@ -109,7 +106,7 @@ export default function WelcomePage() {
 
                     </Grid>
                     <Divider variant="middle" className="my-3" />
-                            <Typography variant="h5" className="mb-3" bold align="left" >
+                            <Typography variant="h5" className="mb-3"  align="left" >
                             Anamnese@Home
                             </Typography>
                     <Grid container spacing={3} className="w-82">
@@ -118,12 +115,12 @@ export default function WelcomePage() {
                             <div style={borderCard}>
                               <div>
                               <div className="text-center p-2">
-                               <i class="far fa-edit" style={IconSize}></i>
+                               <i className="far fa-edit" style={IconSize}></i>
                                </div>
-                                <Typography color="white" className=" text-center d-block font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className=" text-center d-block font-weight-bold" variant="inherit" align="left" gutterBottom>
                                 Anamnese@Home 
                                 </Typography>
-                                <Typography color="white" className=" text-center font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className=" text-center font-weight-bold" variant="inherit" align="left" gutterBottom>
                                 Links 
                                 </Typography>
                                 <div className="p-2">
@@ -139,10 +136,10 @@ export default function WelcomePage() {
                               <div className="text-center p-2">
                                <DescriptionIcon style={IconSize} />
                                </div>
-                                <Typography color="white" className=" font-weight-bold d-block text-center"  variant="p" align="left" gutterBottom>
+                                <Typography  className=" font-weight-bold d-block text-center"  variant="inherit" align="left" gutterBottom>
                                 Eingegangene 
                                 </Typography>
-                                <Typography color="white" className=" font-weight-bold  text-center" variant="p" align="left" gutterBottom>
+                                <Typography  className=" font-weight-bold  text-center" variant="inherit" align="left" gutterBottom>
                                 Anamnesen 
                                 </Typography>
                                 <div className="p-2">
@@ -154,7 +151,7 @@ export default function WelcomePage() {
                         </Grid>
                       
                     </Grid>
-                    <Typography variant="h5" bold align="left" className="mt-3">
+                    <Typography variant="h5"  align="left" className="mt-3">
                             Einstellungen
                                                         </Typography>
                                                         <Divider variant="middle" className="my-3" />
@@ -165,9 +162,9 @@ export default function WelcomePage() {
                             <div style={borderCard}>
                               <div>
                               <div className="text-center p-2">
-                               <i class="fal fa-hospital-alt" style={IconSize}></i>
+                               <i className="fal fa-hospital-alt" style={IconSize}></i>
                                </div>
-                                <Typography color="white" className="p-2 font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className="p-2 font-weight-bold" variant="inherit" align="left" gutterBottom>
                                 Praxis-Stammdaten
                                 </Typography>
                                 <div className="p-2">
@@ -183,7 +180,7 @@ export default function WelcomePage() {
                               <div className="text-center p-2">
                                <ImageIcon style={IconSize} />
                                </div>
-                                <Typography color="white" className="p-2 font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className="p-2 font-weight-bold" variant="inherit" align="left" gutterBottom>
                                 Logo
                                 </Typography>
                                 <div className="p-2">
@@ -199,7 +196,7 @@ export default function WelcomePage() {
                               <div className="text-center p-2">
                                <LockOpenIcon style={IconSize} />
                                </div>
-                                <Typography color="white" className="p-2 font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className="p-2 font-weight-bold" variant="inherit" align="left" gutterBottom>
                                 Sperrpasswort
                                 </Typography>
                                 <div className="p-2">
@@ -213,9 +210,9 @@ export default function WelcomePage() {
                             <div style={borderCard}>
                               <div>
                               <div className="text-center p-2">
-                               <i class="fas fa-filter" style={IconSize}></i>
+                               <i className="fas fa-filter" style={IconSize}></i>
                                </div>
-                                <Typography color="white" className="p-2 font-weight-bold" variant="p" align="left" gutterBottom>
+                                <Typography  className="p-2 font-weight-bold" variant="inherit" align="left" gutterBottom>
                                 App-Einstellungen
                                 </Typography>
                                 <div className="p-2">

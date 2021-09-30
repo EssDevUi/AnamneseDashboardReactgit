@@ -1,18 +1,10 @@
-import { render } from "@testing-library/react";
-import React, {Component} from "react";
+import React from "react";
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import MenuItem from '@material-ui/core/MenuItem';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
+
 import {deleterecord_Template_SheetsTabs,duplicaterecord_Template_SheetsTabs} from "../api";
 
 
@@ -32,8 +24,8 @@ if(data.length>0){
 
         array.push(
            
-            <li class="list-group-item " key={elements[i].id}>
-                <div class="d-flex align-items-center justify-content-between">
+            <li className="list-group-item " key={elements[i].id}>
+                <div className="d-flex align-items-center justify-content-between">
                     <span>{elements[i].templates}</span>
                     <Link id={elements[i].id}  onClick={(e) => duplicaterecord_Template_SheetsTabs(e,objState)}>
                     Duplizieren
@@ -55,8 +47,8 @@ const scndTab = (data,objState) => {
         if(elements[i].default===false){
         array.push(
            
-            <li class="list-group-item " key={elements[i].id}>
-                  <div class="d-flex align-items-center justify-content-between">
+            <li className="list-group-item " key={elements[i].id}>
+                  <div className="d-flex align-items-center justify-content-between">
                     <span>{elements[i].templates}</span>
                    <div>
                    <Link id={elements[i].id} onClick={(e) => duplicaterecord_Template_SheetsTabs(e,objState)}>
@@ -83,7 +75,7 @@ export default function SheetsTabs(props,objState) {
         return(
             <>
          
-         <Typography className="mb-3" variant="h4" bold align="left" >
+         <Typography className="mb-3" variant="h4"  align="left" >
          {props.templates}
                             </Typography>
             <Card  className="mb-3">
@@ -91,13 +83,13 @@ export default function SheetsTabs(props,objState) {
                     <Grid container spacing={0}>
                         <Grid item xs={12} className="pb-0">
                             <div className="p-3" style={bglight}>
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                 Athena-Standardvorlagen
                             </Typography>
                             </div>
                         </Grid>
                     </Grid>
-                    <ul class="list-group">
+                    <ul className="list-group">
                                         {props.list1data !== undefined ?   firstTab(props.list1data,props.objState): ""}
 
                                   </ul>
@@ -109,13 +101,13 @@ export default function SheetsTabs(props,objState) {
                     <Grid container spacing={0}>
                         <Grid item xs={12} className="pb-0">
                             <div className="p-3" style={bglight}>
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                 Eigene Vorlagen
                             </Typography>
                             </div>
                         </Grid>
                     </Grid>
-                    <ul class="list-group">
+                    <ul className="list-group">
                                         {props.list2data !== undefined ?   scndTab(props.list2data,props.objState): ""}
 
                                   </ul>

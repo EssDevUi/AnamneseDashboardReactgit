@@ -45,7 +45,7 @@ export default function Sndcard(props) {
                     <Grid container spacing={3}>
                         <Grid item xs={12} className="pb-0">
                             <div className="p-3" style={bglight}>
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Anamnesis @ Home-Link
                                 </Typography>
                             </div>
@@ -57,7 +57,7 @@ export default function Sndcard(props) {
 
                         <Grid item xs={12} className="Body py-0">
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Veröffentlichen Sie diesen Link auf Ihrer Website oder senden Sie ihn Ihren Patienten per E-Mail. Mit dem Klick auf den Link können Ihre Patienten das Ausfüllen der ausgewählten Vorlagen starten.</Typography>
 
 
@@ -69,7 +69,7 @@ export default function Sndcard(props) {
                     <Grid container alignItems="center">
                         <Grid item xs={2}>
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Links                            </Typography>
                             </div>
                         </Grid>

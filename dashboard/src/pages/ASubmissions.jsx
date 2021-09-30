@@ -1,16 +1,12 @@
-import React, { Component } from "react";
-import Grid from '@material-ui/core/Grid';
+import React from "react";
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 // import MUIDataTable from "../../MUI";
 import MUIDataTable from "mui-datatables";
-import Paper from '@material-ui/core/Paper';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import axios from 'axios';
 import {get_MedicalHistory} from '../api';
 import Loader from "react-loader-spinner";
 
@@ -83,7 +79,7 @@ export default class ASubmissions extends React.Component {
                   />
                 <Card>
                     <CardContent>
-                    <Typography variant="h4" className="mb-3" bold align="left" >
+                    <Typography variant="h4" className="mb-3"  align="left" >
                     Nicht zugewiesene Anamnesen
                     </Typography>
                     <div className="d-flex mb-3">

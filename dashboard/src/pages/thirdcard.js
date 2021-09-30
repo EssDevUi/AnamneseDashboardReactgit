@@ -49,7 +49,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                     <Grid container spacing={3}>
                         <Grid item xs={12} className="pb-0">
                             <div className="p-3" style={bglight}>
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Weitere Einstellungen
                             </Typography>
                             </div>
@@ -57,7 +57,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
 
                         <Grid item xs={12} className="Body py-0">
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Der Name des Anamnese@Home-Links hilft Ihnen bei der Zuordnung. Er wird Ihren Patienten nicht angezeigt. Bitte geben Sie einen Namen ein.
 
                                 </Typography>
@@ -69,7 +69,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                     <Grid container alignItems="center">
                         <Grid item xs={12} sm={2}>
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Name *
                          </Typography>
                             </div>
@@ -84,7 +84,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
 
                     </Grid>
                     <div className="p-3">
-                        <Typography variant="p" bold align="left">
+                        <Typography variant="inherit"  align="left">
                             Standardmäßig werden Benachrichtigungen über neu eingegangene Anamnesen an die hinterlegte E-Mail-Adresse Ihrer Praxis gesendet. Hier können Sie eine abweichende E-Mail-Adresse eingeben, an die die Benachrichtigungen verschickt werden.
 
 
@@ -93,7 +93,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                     <Grid container alignItems="center">
                         <Grid item xs={12} sm={2}>
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     E-Mail *
                          </Typography>
                             </div>
@@ -108,7 +108,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
 
                     </Grid>
                     <div className="p-3">
-                        <Typography variant="p" bold align="left">
+                        <Typography variant="inherit"  align="left">
                             Für DS-Win-Kunden: Legen Sie hier fest, ob Sie diesen Link für die individualisierten Einladungen zu Anamnese@Home nutzen möchten. Sie können die individualisierten Einladungen im DS-Win über das Athena-Menü an Ihre Patienten schicken.
 
                                 </Typography>
@@ -116,7 +116,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                     <Grid container alignItems="center">
                         <Grid item xs={8}>
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     Für Einladungen aus dem DS-Win nutzen?
                          </Typography>
                             </div>
@@ -140,10 +140,10 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                     </Grid>
                     <Divider variant="middle" />
                     <div className="p-3" >
-                                <Typography variant="h6" bold align="left">
+                                <Typography variant="h6"  align="left">
                                 Kontaktmöglichkeiten für Ihre Patienten
                             </Typography>
-                            <Typography variant="p" bold align="left">
+                            <Typography variant="inherit"  align="left">
                             Legen Sie hier fest, welche E-Mail-Adresse und Telefonnummer Ihren Patienten in der individualisierten Einladungs-E-Mail angezeigt werden sollen.
 
 </Typography>
@@ -151,7 +151,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                             <Grid container alignItems="center">
                         <Grid item xs={12} sm={2}>
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                     E-Mail *
                                 </Typography>
                             </div>
@@ -167,7 +167,7 @@ const iSchecked=props.anamnesis_at_home_flow.default;
                     <Grid container alignItems="center">
                         <Grid item xs={12} sm={2}>
                             <div className="p-3">
-                                <Typography variant="p" bold align="left">
+                                <Typography variant="inherit"  align="left">
                                 Telefonnummer
                          </Typography>
                             </div>

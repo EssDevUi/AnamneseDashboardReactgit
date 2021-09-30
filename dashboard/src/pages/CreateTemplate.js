@@ -1,14 +1,9 @@
-import { render } from "@testing-library/react";
-import React, { Component } from "react";
+import React from "react";
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import axios from 'axios';
-import { ServerUrl } from '../Config';
 import Loader from "react-loader-spinner";
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
@@ -45,7 +40,6 @@ export default class CreateTemplate extends React.Component {
         }
     }
     handleChange = (event) => {
-        console.log([event.target.name]+ " " + " " + event.target.value)
         this.setState({
             [event.target.name]: event.target.value
         });
@@ -77,7 +71,7 @@ export default class CreateTemplate extends React.Component {
                                     alignItems="center"
                                 >
                                     <Grid item>
-                                        <Typography className="ml-2" variant="h4" bold align="center" >
+                                        <Typography className="ml-2" variant="h4"  align="center" >
                                             Neue Vorlage
                                         </Typography>
                                     </Grid>

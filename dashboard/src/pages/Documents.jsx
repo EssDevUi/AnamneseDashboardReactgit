@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
@@ -24,7 +24,7 @@ export default class Documents extends React.Component {
         createList(objarry){
           let list="<ul style='text-align:left'>";
           for (let index = 0; index < objarry.length; index++) {
-            const element = objarry[index];
+            // const element = objarry[index];
             list= list+"<li>"+objarry[index].risiko+"</li>"
           }
           list= list+"</ul>";
@@ -107,7 +107,7 @@ export default class Documents extends React.Component {
                     visible={this.state.loader}
                     className="ourloader"
                   />
-             <Typography variant="h4" className="mb-3" bold align="left" >
+             <Typography variant="h4" className="mb-3"  align="left" >
                             Dokumente
                             </Typography>
 
