@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import Typography from '@material-ui/core/Typography';
 
 import { DropzoneArea } from 'material-ui-dropzone'
-import ReactFileReader from 'react-file-reader';
 import { POST_PRACTICElOGO, get_oracticeLogo } from "../api";
 import Button from '@material-ui/core/Button';
 

@@ -1,15 +1,10 @@
-import { render } from "@testing-library/react";
-import React, { Component } from "react";
+import React from "react";
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import axios from 'axios';
-import { ServerUrl } from '../Config';
 import { getUser_profile, handleSubmit_profile } from "../api";
 import Loader from "react-loader-spinner";
 

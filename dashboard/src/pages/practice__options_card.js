@@ -1,36 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
 
 import CardContent from '@material-ui/core/CardContent';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
+
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import InputLabel from '@material-ui/core/InputLabel';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import {get_appOptions,post_appOptions} from "../api";
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
 
 
 
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
-}));
+
+// const useStyles = makeStyles((theme) => ({
+//     formControl: {
+//         margin: theme.spacing(1),
+//         minWidth: 120,
+//     },
+//     selectEmpty: {
+//         marginTop: theme.spacing(2),
+//     },
+// }));
 
 const width = {
     width: "10%"
@@ -66,7 +59,7 @@ export default class external__practice__options_card extends React.Component {
       
       }
     handleChange(e) {
-        if(e.target.type=="checkbox"){
+        if(e.target.type==="checkbox"){
             this.setState({
               [e.target.name]: e.target.checked
           });
