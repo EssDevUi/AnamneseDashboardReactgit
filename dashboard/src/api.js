@@ -598,14 +598,13 @@ export async function get_appOptions(obj) {
       NavigateTo:response.data.navigateTo,
       Sendanalyticsdata:response.data.sendanalyticsdata,
       day:new Date(response.data.bugReportTime).getDate(),
-      Month:new Date(response.data.bugReportTime).getMonth(),
+      Month:new Date(response.data.bugReportTime).getMonth()+1,
       Year:new Date(response.data.bugReportTime).getFullYear(),
       Hour:new Date(response.data.bugReportTime).getHours(),
       Minute:new Date(response.data.bugReportTime).getMinutes(),
     })
   })
 
-  debugger
   // console.log(response);
   // obj.setState({
     //   DangerZonePassword:response.data.DangerZonePassword,

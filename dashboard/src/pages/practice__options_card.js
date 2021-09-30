@@ -110,7 +110,7 @@ export default class external__practice__options_card extends React.Component {
                                                 className="m-0"
                                                 control={
                                                     <Checkbox
-                                                        defaultChecked={this.state.BlockingPassword}
+                                                        checked={this.state.BlockingPassword}
                                                         color="primary"
                                                         onChange={this.handleChange}
                                                         name="BlockingPassword"
@@ -133,7 +133,7 @@ export default class external__practice__options_card extends React.Component {
                                                 control={
                                                     <Checkbox
                                                         color="primary"
-                                                        defaultChecked={this.state.BugReports}
+                                                        checked={this.state.BugReports}
                                                         onChange={this.handleChange}
                                                         name="BugReports"
                                                     />
@@ -308,7 +308,7 @@ export default class external__practice__options_card extends React.Component {
                                                 control={
                                                     <Checkbox
                                                         color="primary"
-                                                        defaultChecked={this.state.Sendanalyticsdata}
+                                                        checked={this.state.Sendanalyticsdata}
                                                         onChange={this.handleChange}
                                                         name="Sendanalyticsdata"
                                                     />
@@ -331,7 +331,7 @@ export default class external__practice__options_card extends React.Component {
                                                 control={
                                                     <Checkbox
                                                         color="primary"
-                                                        defaultChecked={this.state.AllowPriviousEntry}
+                                                        checked={this.state.AllowPriviousEntry}
                                                         onChange={this.handleChange}
                                                         name="AllowPriviousEntry"
                                                     />
