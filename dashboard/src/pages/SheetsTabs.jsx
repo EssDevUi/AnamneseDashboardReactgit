@@ -27,7 +27,7 @@ if(data.length>0){
             <li className="list-group-item " key={elements[i].id}>
                 <div className="d-flex align-items-center justify-content-between">
                     <span>{elements[i].templates}</span>
-                    <Link   onClick={(e) => duplicaterecord_Template_SheetsTabs(e,elements[i])}>
+                    <Link id={elements[i].id}  onClick={(e) => duplicaterecord_Template_SheetsTabs(e,objState)}>
                     Duplizieren
                     </Link>
                 </div>
@@ -51,7 +51,7 @@ const scndTab = (data,objState) => {
                   <div className="d-flex align-items-center justify-content-between">
                     <span>{elements[i].templates}</span>
                    <div>
-                   <Link id={elements[i].id} onClick={(e) => duplicaterecord_Template_SheetsTabs(e)}>
+                   <Link id={elements[i].id} onClick={(e) => duplicaterecord_Template_SheetsTabs(e,objState)}>
                     Duplizieren
                     </Link>
                     {/* onClick={(e) => grtrecordByid_Template_SheetsTabs(e) */}

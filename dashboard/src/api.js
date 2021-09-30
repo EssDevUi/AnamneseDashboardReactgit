@@ -21,22 +21,15 @@ export function deleterecord_Template_SheetsTabs (e,objState) {
        })
  }
  export function duplicaterecord_Template_SheetsTabs (e,src) {
-    const data={
-      "authenticity_token":"FkVCdznlWKhw70v01gebVOHiaQukTrSBKMYDrIypIuA5TNBirxzCTT216LlutonWZfJyqVrlgBiI54CcAiEKGA",
-      "document_template":
-      {
-           "title":src.title,
-           "template_category_id":src.template_category_id
-       },
-       "commit": "Vorlage erstellen"
-    }
+ 
      axios({  
          method: 'Post',
-         url: ServerUrl+'/external/document_templates/new_from/'+src.id + '/',
-        data:data
+         url: ServerUrl+'/external/document_templates/new_from/'+e.currentTarget.id + '/',
        }).then(response => {
-
-        console.log(response);
+        src.setState({
+          array:response.data,
+          loader:false
+      })
        })
  }
  export function TemplateType_Template_SheetsTabs(e) {

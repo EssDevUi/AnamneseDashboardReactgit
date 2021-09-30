@@ -27,7 +27,7 @@ export default class CreateTemplate extends React.Component {
 
     }
     componentDidMount() {
-        if(this.props.match.params.id!==null||this.props.match.params.id!=='')
+        if(this.props.match.params.id!==null&&this.props.match.params.id!==undefined)
         {
             this.setState({
                 id: this.props.match.params.id

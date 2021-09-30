@@ -133,7 +133,7 @@ export default class WizPracticeLogo extends React.Component {
 :
                 <div className="divBegining">
                 <div className="w-50 mx-auto dropzonepreviewDiv">
-                  <img width="180" height="180" src={"data:image/png;base64," + this.state.Logo} className="PreviewImg" alt="" />
+                  <img width="180" height="180" src={this.state.Logo} className="PreviewImg" alt="" />
                   <div className="overlayedit">
                     <IconButton color="default" onClick={this.openDropDialog} aria-label="upload picture" component="span">
                       <PhotoCamera />
