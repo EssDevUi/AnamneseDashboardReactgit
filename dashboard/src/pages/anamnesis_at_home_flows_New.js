@@ -1,5 +1,5 @@
 
-import React, {Component} from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {Postanamnesis_at_home_flow_new} from "../api";
@@ -24,7 +24,7 @@ export default class anamnesis_at_home_flow_new extends React.Component{
     }
     handleChange(e) {
 
-        if(e.target.type=="checkbox"){
+        if(e.target.type==="checkbox"){
             this.setState({
               [e.target.name]: e.target.checked
           });

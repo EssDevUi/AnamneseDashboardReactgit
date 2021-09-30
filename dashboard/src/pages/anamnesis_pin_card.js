@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
 
 import CardContent from '@material-ui/core/CardContent';
@@ -9,9 +9,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Alert from '@material-ui/lab/Alert';
 import {get_anamnesePin,post_anamnesePin} from "../api";
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
+
 
 
 

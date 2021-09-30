@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {getPracticeData_Practice} from '../api';
@@ -62,7 +62,7 @@ render(){
         <a href="mailto:info@dr-gallenbach.de">info@dr-gallenbach.de</a>
         <br />
         <i aria-hidden="true" className="fa fa-globe"></i>
-        <a href="https://www.gallenbach-zaehne.de/" target="_blank">https://www.gallenbach-zaehne.de/</a>
+        <a href="https://www.gallenbach-zaehne.de/" rel="noreferrer" target="_blank">https://www.gallenbach-zaehne.de/</a>
         </address>
         Kundennummer: 7729
         <h4 className="mt-5">Technische Daten</h4>

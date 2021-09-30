@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {getPracticeData_Practice,PostPracticeData_Practice} from '../api';
@@ -55,7 +55,7 @@ export default class external_practice_edit extends React.Component{
       }
      
       handleChange(e) {
-        if(e.target.type=="checkbox"){
+        if(e.target.type==="checkbox"){
             this.setState({
               [e.target.name]: e.target.checked
           });
