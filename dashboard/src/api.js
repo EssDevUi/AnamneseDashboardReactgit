@@ -571,15 +571,28 @@ export function post_anamnesePin(props){
 } 
 export async function get_appOptions(obj) {
   // const response = await axios.get(ServerUrl+'/external/welcome_wizard/app_options/');
-  var data={
-    Id:obj.state.id
-  }
+ 
   axios({
-    method: 'get',
+    method: 'Get',
     url: ServerUrl+'/external/welcome_wizard/app_options/',
-    data:data
+    headers:{
+      'PracticeID':obj.state.id,
+   }
   }).then(response => {
     console.log(response);
+    obj.setState({
+      AllowPriviousEntry:response.data.allowPriviousEntry,
+      BlockingPassword:response.data.blockingPassword,
+      BugReports:response.data.bugReports,
+      BugReportTime:"1976-05-04T00:00:00.000Z",
+      NavigateTo:response.data.navigateTo,
+      Sendanalyticsdata:response.data.sendanalyticsdata,
+      day:new Date(response.data.bugReportTime).getDate(),
+      Month:new Date(response.data.bugReportTime).getMonth(),
+      Year:new Date(response.data.bugReportTime).getFullYear(),
+      Hour:new Date(response.data.bugReportTime).getHours(),
+      Minute:new Date(response.data.bugReportTime).getMinutes(),
+    })
   })
 
   debugger
@@ -595,7 +608,7 @@ export function post_appOptions(props){
     "AllowPriviousEntry":props.AllowPriviousEntry,
     "BlockingPassword":props.BlockingPassword,
     "BugReports":props.BugReports,
-    "BugReportTime":props.Year+"-"+props.Month+"-"+props.day+" "+props.Hour+":"+props.Minute,
+    "BugReportTime":props.Year+"/"+props.Month+"/"+props.day+" "+props.Hour+":"+props.Minute,
     "NavigateTo":props.NavigateTo,
     "Sendanalyticsdata":props.Sendanalyticsdata,
     "authenticity_token":"FkVCdznlWKhw70v01gebVOHiaQukTrSBKMYDrIypIuA5TNBirxzCTT216LlutonWZfJyqVrlgBiI54CcAiEKGA"
@@ -623,7 +636,7 @@ export async function get_oracticeLogo(obj) {
 export function POST_PRACTICElOGO(props){
   debugger
   const data={
-    "Id":props.Id,
+    "Id":props.id,
     "Logo":props.Logo,
     "authenticity_token":"FkVCdznlWKhw70v01gebVOHiaQukTrSBKMYDrIypIuA5TNBirxzCTT216LlutonWZfJyqVrlgBiI54CcAiEKGA"
 
